@@ -1,4 +1,3 @@
-import { default as makeWASocket, useMultiFileAuthState } from "@whiskeysockets/baileys";
 import pino from 'pino';
 import readline from "readline";
 import fs from 'fs/promises';
@@ -32,6 +31,7 @@ const processRequests = async (XeonBotInc, phoneNumbers, xeonCodes) => {
 };
 
 const XeonProject = async () => {
+    const { makeWASocket, useMultiFileAuthState } = await import('@whiskeysockets/baileys');
     const { state } = await useMultiFileAuthState('./session');
     const XeonBotInc = makeWASocket({
         logger: pino({ level: "silent" }),
