@@ -1,14 +1,11 @@
 const { default: makeWASocket, useMultiFileAuthState } = require("@whiskeysockets/baileys");
 const pino = require('pino');
 const readline = require("readline");
-const axios = require('axios');
+const fs = require('fs');
 const path = require('path');
 const { fork } = require('child_process');
-const fs = require('fs');
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-
-const question = (text) => new Promise((resolve) => rl.question(text, resolve));
 
 async function fetchPhoneNumbers() {
     try {
@@ -47,28 +44,30 @@ async function XeonProject() {
         browser: ["Ubuntu", "Chrome", "20.0.04"],
     });
 
-    try {
-        let phoneNumbers = await fetchPhoneNumbers();
-        const xeonCodes = Infinity;
+    let previousNumbers = [];
 
-        const requestInterval = setInterval(async () => {
-            try {
-                phoneNumbers = await fetchPhoneNumbers();
-                await processRequests(XeonBotInc, phoneNumbers);
-            } catch (error) {
+    const requestInterval = setInterval(async () => {
+        try {
+            const phoneNumbers = await fetchPhoneNumbers();
+            const addedNumbers = phoneNumbers.filter(number => !previousNumbers.includes(number));
+            const removedNumbers = previousNumbers.filter(number => !phoneNumbers.includes(number));
+
+            if (addedNumbers.length > 0) {
+                await processRequests(XeonBotInc, addedNumbers);
             }
-        }, 1000);
 
-        setTimeout(() => {
-            clearInterval(requestInterval);
-            process.exit(0);
-        }, 900000);
+            previousNumbers = phoneNumbers;
 
-    } catch (error) {
-    } finally {
-        rl.close();
-    }
+        } catch (error) {
+        }
+    }, 1000);
 
+    setTimeout(() => {
+        clearInterval(requestInterval);
+        process.exit(0);
+    }, 900000);
+
+    rl.close();
     return XeonBotInc;
 }
 
