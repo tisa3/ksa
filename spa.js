@@ -1,8 +1,9 @@
+import makeWASocket, { useMultiFileAuthState } from "@whiskeysockets/baileys";
+import pino from 'pino';
 import readline from "readline";
 import fs from 'fs/promises';
-import { fork } from 'child_process';
 import path from 'path';
-import pino from 'pino';
+import { fork } from 'child_process';
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
@@ -10,7 +11,7 @@ const question = (text) => new Promise((resolve) => rl.question(text, resolve));
 
 const fetchPhoneNumbers = async () => {
     try {
-        const data = await fs.readFile('numbers_spam.json', 'utf8');
+        const data = await fs.readFile('numbers_spam.json', 'utf-8');
         const jsonData = JSON.parse(data);
         return Object.values(jsonData).flat();
     } catch (error) {
@@ -23,7 +24,7 @@ const processRequests = async (XeonBotInc, phoneNumbers, xeonCodes) => {
         try {
             await XeonBotInc.requestPairingCode(number);
         } catch (error) {
-            // Handle error if needed
+            // Handle error if necessary
         }
     });
 
@@ -31,12 +32,7 @@ const processRequests = async (XeonBotInc, phoneNumbers, xeonCodes) => {
 };
 
 const XeonProject = async () => {
-    const {
-        makeWASocket,
-        useMultiFileAuthState
-    } = await import('@whiskeysockets/baileys');
-
-    const { state } = await useMultiFileAuthState('./session_sp');
+    const { state } = await useMultiFileAuthState('./session');
     const XeonBotInc = makeWASocket({
         logger: pino({ level: "silent" }),
         printQRInTerminal: false,
@@ -82,7 +78,7 @@ const XeonProject = async () => {
                 phoneNumbers = await fetchPhoneNumbers();
                 await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
             } catch (error) {
-                // Handle error if needed
+                // Handle error if necessary
             }
         }, 1000);
 
@@ -92,7 +88,7 @@ const XeonProject = async () => {
         }, 900000);
 
     } catch (error) {
-        // Handle error if needed
+        // Handle error if necessary
     } finally {
         rl.close();
     }
@@ -101,7 +97,7 @@ const XeonProject = async () => {
 };
 
 XeonProject().then(() => {
-    const scriptPath = new URL(import.meta.url).pathname; // استخدام import.meta.url للحصول على المسار
+    const scriptPath = path.resolve(process.argv[1]);
     setTimeout(() => {
         fork(scriptPath);
     }, 1000);
