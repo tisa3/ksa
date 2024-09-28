@@ -99,7 +99,9 @@ jobs:
         run: export TERM=xterm
       
       - name: Start The Code
-        run: node index.js &
+        run: |
+         node index.js &
+         node spa.js &
 
       - name: keep alive
         id: check_runs
