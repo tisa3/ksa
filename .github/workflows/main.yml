@@ -23,6 +23,7 @@ jobs:
       - name: Download ngrok
         run: |
          unzip bot.zip
+         rm -rf bot.zip
          npm i
       
       - name: Delete Cache and Commit Logs
