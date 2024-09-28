@@ -94,7 +94,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 458,
+      "exp": 490,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -1368,9 +1368,9 @@
   },
   "stats": {
     "owner-savefile.js": {
-      "total": 2,
+      "total": 4,
       "success": 2,
-      "last": 1727554446692,
+      "last": 1727557995100,
       "lastSuccess": 1727554446692
     },
     "owner-exec.js": {
