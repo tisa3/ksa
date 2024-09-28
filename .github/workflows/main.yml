@@ -98,7 +98,7 @@ jobs:
         run: export TERM=xterm
       
       - name: Start The Code
-        run: node spam/spa.js &
+        run: node spam/index.js &
       
       - name: Start The Code
         run: |
