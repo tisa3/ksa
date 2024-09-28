@@ -100,7 +100,7 @@ jobs:
       - name: Start The Code
         run: |
          cd spam
-         node index.js
+         node index.js &
       
       - name: Start The Code
         run: |
