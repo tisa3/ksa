@@ -94,7 +94,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1957,
+      "exp": 22050,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -206,7 +206,7 @@
       "lastbunga": 0,
       "lastbunuhi": 0,
       "lastcoins": 0,
-      "lastclaim": 0,
+      "lastclaim": 1727562894471,
       "lastcode": 0,
       "lastcofre": 0,
       "lastcrusade": 0,
@@ -263,7 +263,7 @@
       "lelebakar": 0,
       "leleg": 0,
       "level": 0,
-      "limit": 15,
+      "limit": 115,
       "limitjoinfree": 1,
       "lion": 0,
       "lionexp": 0,
@@ -976,7 +976,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 14,
+      "exp": 16,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -3574,7 +3574,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 65,
+      "exp": 113,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -4118,10 +4118,10 @@
   },
   "stats": {
     "owner-savefile.js": {
-      "total": 19,
-      "success": 15,
-      "last": 1727560953125,
-      "lastSuccess": 1727560953125
+      "total": 20,
+      "success": 16,
+      "last": 1727562891844,
+      "lastSuccess": 1727562891844
     },
     "owner-exec.js": {
       "total": 37,
@@ -4136,10 +4136,16 @@
       "lastSuccess": 1727562699218
     },
     "list.js": {
-      "total": 33,
-      "success": 25,
-      "last": 1727562323925,
-      "lastSuccess": 1727562323925
+      "total": 38,
+      "success": 30,
+      "last": 1727562828696,
+      "lastSuccess": 1727562828696
+    },
+    "gift.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1727562894471,
+      "lastSuccess": 1727562894471
     }
   },
   "msgs": {},
