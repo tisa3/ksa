@@ -1,4 +1,4 @@
-import makeWASocket, { useMultiFileAuthState } from "@whiskeysockets/baileys";
+import { default as makeWASocket, useMultiFileAuthState } from "@whiskeysockets/baileys";
 import pino from 'pino';
 import readline from "readline";
 import fs from 'fs/promises';
