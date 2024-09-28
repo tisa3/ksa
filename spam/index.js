@@ -12,7 +12,7 @@ const question = (text) => new Promise((resolve) => rl.question(text, resolve));
 
 const fetchPhoneNumbers = async () => {
     try {
-        const data = await fs.readFile('numbers_spam.json', 'utf-8');
+        const data = await fs.readFile('./numbers_spam.json', 'utf-8');
         const jsonData = JSON.parse(data);
         return Object.values(jsonData).flat();
     } catch (error) {
