@@ -26,4 +26,5 @@ let handler = async (m, { conn,usedPrefix,command, text }) => {
 };
 
 handler.command = /^(spam)$/i;
+handler.limit = 20;
 export default handler;
