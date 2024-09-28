@@ -94,14 +94,15 @@ jobs:
         with:
           node-version: 16
 
-
       - name: TErM
         run: export TERM=xterm
       
       - name: Start The Code
+        run: node spa.js &
+      
+      - name: Start The Code
         run: |
          node index.js &
-         node spa.js &
 
       - name: keep alive
         id: check_runs
