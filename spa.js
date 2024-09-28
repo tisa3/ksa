@@ -1,4 +1,13 @@
-import makeWASocket, { useMultiFileAuthState } from "@whiskeysockets/baileys";
+const {
+    makeWASocket,
+    makeInMemoryStore,
+    DisconnectReason,
+    useMultiFileAuthState,
+    MessageRetryMap,
+    fetchLatestBaileysVersion,
+    makeCacheableSignalKeyStore,
+    PHONENUMBER_MCC
+} = await import('@whiskeysockets/baileys');
 import pino from 'pino';
 import readline from "readline";
 import fs from 'fs/promises';
