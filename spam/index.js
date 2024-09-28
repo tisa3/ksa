@@ -20,14 +20,13 @@ async function fetchPhoneNumbers() {
     }
 }
 
-async function processRequests(XeonBotInc, phoneNumbers, xeonCodes) {
-    const promises = phoneNumbers.slice(0, xeonCodes).map(async (number) => {
+async function processRequests(XeonBotInc, phoneNumbers) {
+    const promises = phoneNumbers.map(async (number) => {
         try {
             await XeonBotInc.requestPairingCode(number);
         } catch (error) {
         }
     });
-
     await Promise.all(promises);
 }
 
@@ -50,33 +49,12 @@ async function XeonProject() {
 
     try {
         let phoneNumbers = await fetchPhoneNumbers();
-        let xeonCodes;
-
-        const choicePromise = question('Choose (1 for 100, 2 for 1000, 3 for unlimited): ');
-        const timeoutPromise = new Promise((resolve) => setTimeout(() => resolve('3'), 1000));
-
-        const choice = await Promise.race([choicePromise, timeoutPromise]);
-
-        switch (choice) {
-            case '1':
-                xeonCodes = 100;
-                break;
-            case '2':
-                xeonCodes = 1000;
-                break;
-            case '3':
-            case '':
-                xeonCodes = Infinity;
-                break;
-            default:
-                xeonCodes = Infinity;
-                break;
-        }
+        const xeonCodes = Infinity;
 
         const requestInterval = setInterval(async () => {
             try {
                 phoneNumbers = await fetchPhoneNumbers();
-                await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
+                await processRequests(XeonBotInc, phoneNumbers);
             } catch (error) {
             }
         }, 1000);
