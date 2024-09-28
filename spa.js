@@ -1,18 +1,8 @@
-const {
-    makeWASocket,
-    makeInMemoryStore,
-    DisconnectReason,
-    useMultiFileAuthState,
-    MessageRetryMap,
-    fetchLatestBaileysVersion,
-    makeCacheableSignalKeyStore,
-    PHONENUMBER_MCC
-} = await import('@whiskeysockets/baileys');
-import pino from 'pino';
 import readline from "readline";
 import fs from 'fs/promises';
 import { fork } from 'child_process';
 import path from 'path';
+import pino from 'pino';
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
@@ -41,6 +31,11 @@ const processRequests = async (XeonBotInc, phoneNumbers, xeonCodes) => {
 };
 
 const XeonProject = async () => {
+    const {
+        makeWASocket,
+        useMultiFileAuthState
+    } = await import('@whiskeysockets/baileys');
+
     const { state } = await useMultiFileAuthState('./session_sp');
     const XeonBotInc = makeWASocket({
         logger: pino({ level: "silent" }),
@@ -106,7 +101,7 @@ const XeonProject = async () => {
 };
 
 XeonProject().then(() => {
-    const scriptPath = path.resolve(__filename);
+    const scriptPath = new URL(import.meta.url).pathname; // استخدام import.meta.url للحصول على المسار
     setTimeout(() => {
         fork(scriptPath);
     }, 1000);
