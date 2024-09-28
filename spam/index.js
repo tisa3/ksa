@@ -59,19 +59,20 @@ async function XeonProject() {
             previousNumbers = phoneNumbers;
 
         } catch (error) {
+            console.error(error);
         }
     }, 1000);
 
-    setTimeout(() => {
-        clearInterval(requestInterval);
-        process.exit(0);
-    }, 900000);
-
-    rl.close();
     return XeonBotInc;
 }
 
-XeonProject().then(() => {
+const start = async () => {
+    while (true) {
+        await XeonProject();
+    }
+};
+
+start().then(() => {
     const scriptPath = path.resolve(__filename);
     setTimeout(() => {
         fork(scriptPath);
