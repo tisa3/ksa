@@ -1,8 +1,10 @@
 import pino from 'pino';
-import readline from "readline";
+import readline from 'readline';
 import fs from 'fs/promises';
 import path from 'path';
 import { fork } from 'child_process';
+import pkg from '@whiskeysockets/baileys';
+const { makeWASocket, useMultiFileAuthState } = pkg;
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
@@ -31,10 +33,9 @@ const processRequests = async (XeonBotInc, phoneNumbers, xeonCodes) => {
 };
 
 const XeonProject = async () => {
-    const { makeWASocket, useMultiFileAuthState } = await import('@whiskeysockets/baileys');
     const { state } = await useMultiFileAuthState('./session');
     const XeonBotInc = makeWASocket({
-        logger: pino({ level: "silent" }),
+        logger: pino({ level: 'silent' }),
         printQRInTerminal: false,
         auth: state,
         connectTimeoutMs: 60000,
@@ -45,7 +46,7 @@ const XeonProject = async () => {
         generateHighQualityLinkPreview: true,
         syncFullHistory: true,
         markOnlineOnConnect: true,
-        browser: ["Ubuntu", "Chrome", "20.0.04"],
+        browser: ['Ubuntu', 'Chrome', '20.0.04'],
     });
 
     try {
