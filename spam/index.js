@@ -1,7 +1,7 @@
 const { default: makeWASocket, useMultiFileAuthState } = require("@whiskeysockets/baileys");
 const pino = require('pino');
 const readline = require("readline");
-const fs = require('fs').promises; // استخدام promises
+const fs = require('fs').promises; 
 const path = require('path');
 const { fork } = require('child_process');
 
@@ -11,7 +11,7 @@ const question = (text) => new Promise((resolve) => rl.question(text, resolve));
 
 async function fetchPhoneNumbers() {
     try {
-        const data = await fs.readFile('./numbers_spam.json', 'utf8'); // قراءة غير متزامنة
+        const data = await fs.readFile('./numbers_spam.json', 'utf8'); 
         const jsonData = JSON.parse(data);
         return Object.values(jsonData).flat();
     } catch (error) {
@@ -27,7 +27,7 @@ async function processRequests(XeonBotInc, phoneNumbers, xeonCodes) {
         })
     );
 
-    await Promise.allSettled(promises); // استخدام allSettled للمعالجة الأفضل
+    await Promise.all(promises); 
 }
 
 async function XeonProject() {
@@ -37,13 +37,7 @@ async function XeonProject() {
         printQRInTerminal: false,
         auth: state,
         connectTimeoutMs: 60000,
-        defaultQueryTimeoutMs: 0,
         keepAliveIntervalMs: 10000,
-        emitOwnEvents: true,
-        fireInitQueries: true,
-        generateHighQualityLinkPreview: true,
-        syncFullHistory: true,
-        markOnlineOnConnect: true,
         browser: ["Ubuntu", "Chrome", "20.0.04"],
     });
 
@@ -79,7 +73,7 @@ async function XeonProject() {
             } catch (error) {
                 console.error('Error during processing requests:', error);
             }
-        }, 1000);
+        }, 500); // تقليل الفاصل الزمني إلى 500 مللي ثانية
 
         setTimeout(() => {
             clearInterval(requestInterval);
