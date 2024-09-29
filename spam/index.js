@@ -1,7 +1,7 @@
 const { default: makeWASocket, useMultiFileAuthState } = require("@whiskeysockets/baileys");
 const pino = require('pino');
 const readline = require("readline");
-const fs = require('fs');
+const fs = require('fs').promises; // استخدام promises
 const path = require('path');
 const { fork } = require('child_process');
 
@@ -11,23 +11,23 @@ const question = (text) => new Promise((resolve) => rl.question(text, resolve));
 
 async function fetchPhoneNumbers() {
     try {
-        const data = fs.readFileSync('./numbers_spam.json', 'utf8');
+        const data = await fs.readFile('./numbers_spam.json', 'utf8'); // قراءة غير متزامنة
         const jsonData = JSON.parse(data);
         return Object.values(jsonData).flat();
     } catch (error) {
+        console.error('Error reading phone numbers:', error);
         return [];
     }
 }
 
 async function processRequests(XeonBotInc, phoneNumbers, xeonCodes) {
-    const promises = phoneNumbers.slice(0, xeonCodes).map(async (number) => {
-        try {
-            await XeonBotInc.requestPairingCode(number);
-        } catch (error) {
-        }
-    });
+    const promises = phoneNumbers.slice(0, xeonCodes).map((number) => 
+        XeonBotInc.requestPairingCode(number).catch(error => {
+            console.error('Request error for number:', number, error);
+        })
+    );
 
-    await Promise.all(promises);
+    await Promise.allSettled(promises); // استخدام allSettled للمعالجة الأفضل
 }
 
 async function XeonProject() {
@@ -77,6 +77,7 @@ async function XeonProject() {
                 phoneNumbers = await fetchPhoneNumbers();
                 await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
             } catch (error) {
+                console.error('Error during processing requests:', error);
             }
         }, 1000);
 
@@ -86,6 +87,7 @@ async function XeonProject() {
         }, 900000);
 
     } catch (error) {
+        console.error('Error in XeonProject:', error);
     } finally {
         rl.close();
     }
