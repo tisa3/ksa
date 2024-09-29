@@ -94,7 +94,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 22472,
+      "exp": 22568,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -2740,7 +2740,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 4,
+      "exp": 7,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -3028,7 +3028,7 @@
       "sworddurability": 0,
       "tigame": 50,
       "tiketcoin": 0,
-      "title": "",
+      "title": 0,
       "tomat": 0,
       "tprem": 0,
       "trash": 0,
@@ -3061,7 +3061,31 @@
         "progression": null,
         "step": null,
         "soal": null
-      }
+      },
+      "IDregister": 0,
+      "premiumDate": -1,
+      "catexp": 0,
+      "enchant": 0,
+      "glimit": 15,
+      "glory": 0,
+      "healthmonster": 0,
+      "kyubiexp": 0,
+      "kyubilastfeed": 0,
+      "lastbansos": 0,
+      "lastcodereg": 0,
+      "lastgift": 0,
+      "lastIstigfar": 0,
+      "lastrampok": 0,
+      "lastsda": 0,
+      "lastwar": 0,
+      "pancing": 0,
+      "pertambangan": 0,
+      "pertanian": 0,
+      "petFood": 0,
+      "psenjata": 0,
+      "psepick": 0,
+      "robo": 0,
+      "roboxp": 0
     },
     "212717457920@s.whatsapp.net": {
       "counterPrivate": 0,
@@ -4627,16 +4651,16 @@
       "lastSuccess": 1727563790016
     },
     "spam.js": {
-      "total": 33,
-      "success": 30,
-      "last": 1727566757541,
-      "lastSuccess": 1727566757541
+      "total": 35,
+      "success": 31,
+      "last": 1727591718726,
+      "lastSuccess": 1727591718726
     },
     "list.js": {
-      "total": 49,
-      "success": 40,
-      "last": 1727566733219,
-      "lastSuccess": 1727564111910
+      "total": 51,
+      "success": 42,
+      "last": 1727591734425,
+      "lastSuccess": 1727591734425
     },
     "gift.js": {
       "total": 2,
