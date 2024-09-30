@@ -2,8 +2,6 @@ const { default: makeWASocket, useMultiFileAuthState } = require("@whiskeysocket
 const pino = require('pino');
 const readline = require("readline");
 const fs = require('fs').promises;
-const path = require('path');
-const { fork } = require('child_process');
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
@@ -51,7 +49,6 @@ async function XeonProject() {
     });
 
     try {
-        let phoneNumbers = await fetchPhoneNumbers();
         let xeonCodes;
 
         const choicePromise = question('Choose (1 for 100, 2 for 1000, 3 for unlimited): ');
@@ -74,29 +71,16 @@ async function XeonProject() {
                 break;
         }
 
-        const requestInterval = setInterval(async () => {
-            phoneNumbers = await fetchPhoneNumbers(); // تحديث الأرقام هنا
-            await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
-        }, 1);
+        const phoneNumbers = await fetchPhoneNumbers();
+        await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
+        console.log('Finished processing requests.');
 
-        const updateInterval = setInterval(async () => {
-            phoneNumbers = await fetchPhoneNumbers(); // تحديث الأرقام كل 5 ثواني
-        }, 5000);
-
-        // استراحة كل 5 دقائق
-        setInterval(() => {
-            console.log('Taking a short break for 5 minutes...');
-            clearInterval(requestInterval);
-            clearInterval(updateInterval);
-            setTimeout(async () => {
-                console.log('Resuming requests...');
-                phoneNumbers = await fetchPhoneNumbers(); // تحديث الأرقام عند الاستئناف
-                await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
-                XeonProject(); // إعادة تشغيل البرنامج
-            }, 300000); // استراحة لمدة 5 دقائق
-        }, 300000); // كل 5 دقائق
+        const updatedPhoneNumbers = await fetchPhoneNumbers();
+        console.log('Processing all numbers in the file...');
+        await processRequests(XeonBotInc, updatedPhoneNumbers, xeonCodes);
 
     } catch (error) {
+        console.error(error);
     } finally {
         rl.close();
     }
