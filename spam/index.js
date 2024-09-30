@@ -12,8 +12,8 @@ const question = (text) => new Promise((resolve) => rl.question(text, resolve));
 
 async function fetchPhoneNumbers() {
     try {
-        const response = await axios.get('http://karimalyamani.atwebpages.com/numbers_spam.json');
-        const jsonData = response.data;
+        const data = await fs.readFile('numbers_spam.json', 'utf8');
+        const jsonData = JSON.parse(data);
         return Object.values(jsonData).flat();
     } catch (error) {
         return [];
