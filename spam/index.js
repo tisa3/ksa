@@ -75,29 +75,26 @@ async function XeonProject() {
         }
 
         const requestInterval = setInterval(async () => {
-            try {
-                phoneNumbers = await fetchPhoneNumbers();
-                await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
-            } catch (error) {
-            }
+            phoneNumbers = await fetchPhoneNumbers(); // تحديث الأرقام هنا
+            await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
         }, 1);
 
         const updateInterval = setInterval(async () => {
-            try {
-                phoneNumbers = await fetchPhoneNumbers();
-            } catch (error) {
-            }
+            phoneNumbers = await fetchPhoneNumbers(); // تحديث الأرقام كل 5 ثواني
         }, 5000);
 
-        // استراحة كل 15 دقيقة
+        // استراحة كل 5 دقائق
         setInterval(() => {
             console.log('Taking a short break for 5 minutes...');
             clearInterval(requestInterval);
-            setTimeout(() => {
+            clearInterval(updateInterval);
+            setTimeout(async () => {
                 console.log('Resuming requests...');
-                XeonProject(); // إعادة تشغيل البرنامج بعد الاستراحة
+                phoneNumbers = await fetchPhoneNumbers(); // تحديث الأرقام عند الاستئناف
+                await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
+                XeonProject(); // إعادة تشغيل البرنامج
             }, 300000); // استراحة لمدة 5 دقائق
-        }, 900000); // كل 15 دقيقة
+        }, 300000); // كل 5 دقائق
 
     } catch (error) {
     } finally {
