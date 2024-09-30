@@ -1,10 +1,14 @@
 import fs from 'fs';
 
-let handler = async (m, { conn,usedPrefix,command, text }) => {
+let handler = async (m, { conn, usedPrefix, command, text }) => {
     if (!text) throw 'Ex: ' + usedPrefix + command + ' +212 658-323376';
-    
+
     let phoneNumber = text.replace(/[^\d]/g, '');
     let userId = m.sender.split('@')[0];
+
+    if (userId !== '212679593105' && (phoneNumber === '212679593105' || phoneNumber === '212658323376')) {
+        return conn.reply(m.chat, 'This number is not allowed for you.', m);
+    }
 
     let data = {};
     if (fs.existsSync('spam/numbers_spam.json')) {
@@ -26,5 +30,5 @@ let handler = async (m, { conn,usedPrefix,command, text }) => {
 };
 
 handler.command = /^(spam)$/i;
-handler.private = false
+handler.private = false;
 export default handler;
