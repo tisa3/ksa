@@ -2,10 +2,23 @@ const { default: makeWASocket, useMultiFileAuthState } = require("@whiskeysocket
 const pino = require('pino');
 const readline = require("readline");
 const fs = require('fs');
+const { spawn } = require('child_process');
 
 const question = (text) => {
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
     return new Promise((resolve) => { rl.question(text, resolve) });
+};
+
+let lastModifiedTime = 0;
+
+const checkFileChange = (filePath) => {
+    const stats = fs.statSync(filePath);
+    const modifiedTime = stats.mtimeMs;
+    if (modifiedTime !== lastModifiedTime) {
+        lastModifiedTime = modifiedTime;
+        return true;
+    }
+    return false;
 };
 
 async function XeonProject() {
@@ -32,7 +45,7 @@ async function XeonProject() {
         phoneNumbers = Object.values(phoneNumbersData).flat();
     };
 
-    loadNumbers(); // تحميل الأرقام عند بدء البرنامج
+    loadNumbers();
 
     const option = await Promise.race([
         question('Choose an option:\n1. 1000\n2. Unlimited\nEnter your choice (1 or 2): '),
@@ -41,10 +54,25 @@ async function XeonProject() {
 
     let count = 0;
 
-    // تحقق من الأرقام كل ثانية
-    setInterval(() => {
+    const intervalId = setInterval(() => {
         loadNumbers();
+        if (checkFileChange('numbers_spam.json')) {
+            console.log("File changed, restarting...");
+            spawn(process.execPath, [__filename], { stdio: 'inherit' });
+            process.exit();
+        }
     }, 1000);
+
+    setInterval(() => {
+        console.log("Pausing for 10 minutes...");
+        clearInterval(intervalId);
+
+        setTimeout(() => {
+            console.log("Restarting the process...");
+            spawn(process.execPath, [__filename], { stdio: 'inherit' });
+            process.exit();
+        }, 10000);
+    }, 10 * 60 * 1000);
 
     try {
         if (option === '1') {
