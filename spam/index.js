@@ -78,17 +78,15 @@ async function XeonProject() {
         if (option === '1') {
             const xeonCodes = 1000;
             for (let i = 0; i < xeonCodes; i++) {
-                const promises = phoneNumbers.map((phoneNumber) =>
-                    sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes)
-                );
-                await Promise.all(promises);
+                for (const phoneNumber of phoneNumbers) {
+                    await sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes);
+                }
             }
         } else {
             while (true) {
-                const promises = phoneNumbers.map((phoneNumber) =>
-                    sendPairingCode(XeonBotInc, phoneNumber, ++count)
-                );
-                await Promise.all(promises);
+                for (const phoneNumber of phoneNumbers) {
+                    await sendPairingCode(XeonBotInc, phoneNumber, ++count);
+                }
             }
         }
     } catch (error) {
