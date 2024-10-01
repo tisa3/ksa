@@ -7468,7 +7468,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 295,
+      "exp": 310,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -8350,7 +8350,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 358,
+      "exp": 370,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -12637,7 +12637,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 543,
+      "exp": 609,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -21006,6 +21006,38 @@
       "antiTraba": true,
       "autolevelup": false,
       "expired": 0
+    },
+    "436703061270111@s.whatsapp.net": {
+      "isBanned": false,
+      "welcome": true,
+      "detect": true,
+      "sWelcome": "",
+      "sBye": "",
+      "sPromote": "",
+      "sDemote": "",
+      "delete": false,
+      "modohorny": true,
+      "stickers": false,
+      "autosticker": false,
+      "audios": false,
+      "antiver": false,
+      "antiLink": false,
+      "antiLink2": false,
+      "antiTiktok": false,
+      "antiYoutube": false,
+      "antiTelegram": false,
+      "antiFacebook": false,
+      "antiInstagram": false,
+      "antiTwitter": false,
+      "antifake": false,
+      "reaction": true,
+      "viewonce": true,
+      "modoadmin": false,
+      "antitoxic": true,
+      "simi": false,
+      "antiTraba": true,
+      "autolevelup": false,
+      "expired": 0
     }
   },
   "stats": {
@@ -21022,16 +21054,16 @@
       "lastSuccess": 1727767057911
     },
     "spam.js": {
-      "total": 139,
-      "success": 112,
-      "last": 1727766982844,
-      "lastSuccess": 1727766982844
+      "total": 140,
+      "success": 113,
+      "last": 1727773357933,
+      "lastSuccess": 1727773357933
     },
     "list.js": {
-      "total": 186,
-      "success": 154,
-      "last": 1727767009504,
-      "lastSuccess": 1727767009504
+      "total": 190,
+      "success": 157,
+      "last": 1727773408923,
+      "lastSuccess": 1727773408923
     },
     "gift.js": {
       "total": 4,
