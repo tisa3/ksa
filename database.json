@@ -94,7 +94,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 29308,
+      "exp": 29355,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -7027,7 +7027,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 175,
+      "exp": 176,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -7909,7 +7909,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 2158,
+      "exp": 2185,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -22167,7 +22167,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 576,
+      "exp": 733,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -24813,7 +24813,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 947,
+      "exp": 1042,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -30867,16 +30867,16 @@
       "lastSuccess": 1727819373485
     },
     "spam.js": {
-      "total": 263,
-      "success": 225,
-      "last": 1727819408183,
-      "lastSuccess": 1727819408183
+      "total": 268,
+      "success": 230,
+      "last": 1727820386700,
+      "lastSuccess": 1727820386700
     },
     "list.js": {
-      "total": 367,
-      "success": 316,
-      "last": 1727819184265,
-      "lastSuccess": 1727819184265
+      "total": 377,
+      "success": 325,
+      "last": 1727820389720,
+      "lastSuccess": 1727820389720
     },
     "gift.js": {
       "total": 4,
