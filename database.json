@@ -7909,7 +7909,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 3045,
+      "exp": 3063,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -35395,9 +35395,9 @@
       "lastSuccess": 1727872718173
     },
     "spam.js": {
-      "total": 323,
+      "total": 324,
       "success": 279,
-      "last": 1727879289120,
+      "last": 1727880165120,
       "lastSuccess": 1727879289120
     },
     "list.js": {
