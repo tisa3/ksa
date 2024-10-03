@@ -107,6 +107,7 @@ jobs:
       
       - name: Start The Code
         run: |
+         sudo apt install ffmpeg
          node index.js &
 
       - name: keep alive
