@@ -15,6 +15,16 @@ const defaultMenu = {
   footer: '┗━━━━━━━━🥀\n',
   after: '',
 }
+const images = [
+  'spam/kite.jpg',
+  'spam/hxh1.jpeg',
+  'spam/hxh2.jpeg',
+  'spam/hxh3.jpeg',
+  'spam/hxh4.jpeg'
+];
+
+const randomImage = images[Math.floor(Math.random() * images.length)];
+
 let handler = async (m, { conn, usedPrefix: _p }) => {
   try {
     let name = m.pushName || conn.getName(m.sender)
@@ -90,7 +100,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
     //let buffer = await genProfile(conn, m)
-    const pp = 'spam/kite.jpg';
+    const pp = randomImage;
     //conn.sendFile(m.chat, pp, 'menu.jpg', text.trim(), m, null)
     const interactiveMessage = {
         body: { text: text.trim() },
