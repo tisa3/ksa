@@ -94,7 +94,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 31165,
+      "exp": 31553,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -7909,7 +7909,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 6096,
+      "exp": 6156,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -22215,7 +22215,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 2491,
+      "exp": 2503,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -43482,7 +43482,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 308,
+      "exp": 443,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -45843,28 +45843,28 @@
   },
   "stats": {
     "owner-savefile.js": {
-      "total": 44,
-      "success": 35,
-      "last": 1727958979398,
-      "lastSuccess": 1727958979398
+      "total": 53,
+      "success": 44,
+      "last": 1727960076468,
+      "lastSuccess": 1727960076468
     },
     "owner-exec.js": {
-      "total": 62,
-      "success": 62,
-      "last": 1727958994742,
-      "lastSuccess": 1727958994742
+      "total": 64,
+      "success": 64,
+      "last": 1727959341917,
+      "lastSuccess": 1727959341917
     },
     "spam.js": {
-      "total": 531,
-      "success": 461,
-      "last": 1727958989650,
-      "lastSuccess": 1727958989650
+      "total": 535,
+      "success": 464,
+      "last": 1727960119143,
+      "lastSuccess": 1727960119143
     },
     "list.js": {
-      "total": 748,
-      "success": 660,
-      "last": 1727959004468,
-      "lastSuccess": 1727959004468
+      "total": 755,
+      "success": 666,
+      "last": 1727960126908,
+      "lastSuccess": 1727960126908
     },
     "gift.js": {
       "total": 4,
@@ -45897,10 +45897,10 @@
       "lastSuccess": 1727876008963
     },
     "help.js": {
-      "total": 11,
-      "success": 7,
-      "last": 1727958997695,
-      "lastSuccess": 1727958836761
+      "total": 23,
+      "success": 18,
+      "last": 1727960085955,
+      "lastSuccess": 1727960085955
     }
   },
   "msgs": {},
