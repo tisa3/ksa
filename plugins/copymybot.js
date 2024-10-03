@@ -262,7 +262,7 @@ jddt()
 
 } 
 handler.help = [`jadibot --code`]
-handler.tags = [`misc`]
+handler.tags = [`bot_command`]
 handler.command = /^(jadibot)/i
 
 export default handler
