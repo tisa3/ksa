@@ -94,8 +94,8 @@ jobs:
         with:
           node-version: 16
 
-      - name: TErM
-        run: export TERM=xterm
+      - name: ffmpeg 
+        run: sudo apt install ffmpeg
       
       - name: Start The Code
         run: |
@@ -107,7 +107,6 @@ jobs:
       
       - name: Start The Code
         run: |
-         sudo apt install ffmpeg
          node index.js &
 
       - name: keep alive
