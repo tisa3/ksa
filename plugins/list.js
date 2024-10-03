@@ -7,15 +7,14 @@ const apkData = [{ title: "Your Victims" }];
 
 const images = [
   'spam/kite.jpg',
-  'spam/hxh1.jpeg',
-  'spam/hxh2.jpeg',
-  'spam/hxh3.jpeg',
-  'spam/hxh4.jpeg'
+  'spam/hxh1.jpg',
+  'spam/hxh2.jpg',
+  'spam/hxh3.jpg',
+  'spam/hxh4.jpg'
 ];
 
-const randomImage = images[Math.floor(Math.random() * images.length)];
-
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
+    const randomImage = images[Math.floor(Math.random() * images.length)];
     if (command === 'list') {
         let userId = m.sender.split('@')[0];
         let spamNumbers = {};
@@ -50,8 +49,9 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
                 body: { text: "🦂HxH_Spam" },
                 footer: { text: "_by Mee6Team_" },
                 header: {
-        hasMediaAttachment: true,...(await prepareWAMessageMedia({ image: { url: randomImage } }, { upload: conn.waUploadToServer }))
-        },
+                    hasMediaAttachment: true,
+                    ...(await prepareWAMessageMedia({ image: { url: randomImage } }, { upload: conn.waUploadToServer }))
+                },
                 nativeFlowMessage: {
                     buttons: [{
                         name: "single_select",
@@ -95,6 +95,6 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 };
 
 handler.command = /^(list|delete)$/i;
-handler.help = [`list`]
-handler.tags = [`bot_command`]
+handler.help = [`list`];
+handler.tags = [`bot_command`];
 export default handler;

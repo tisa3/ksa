@@ -17,13 +17,12 @@ const defaultMenu = {
 }
 const images = [
   'spam/kite.jpg',
-  'spam/hxh1.jpeg',
-  'spam/hxh2.jpeg',
-  'spam/hxh3.jpeg',
-  'spam/hxh4.jpeg'
+  'spam/hxh1.jpg',
+  'spam/hxh2.jpg',
+  'spam/hxh3.jpg',
+  'spam/hxh4.jpg'
 ];
 
-const randomImage = images[Math.floor(Math.random() * images.length)];
 
 let handler = async (m, { conn, usedPrefix: _p }) => {
   try {
@@ -100,13 +99,12 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
     //let buffer = await genProfile(conn, m)
-    const pp = randomImage;
-    //conn.sendFile(m.chat, pp, 'menu.jpg', text.trim(), m, null)
+    const randomImage = images[Math.floor(Math.random() * images.length)];
     const interactiveMessage = {
         body: { text: text.trim() },
         footer: { text: "_By Mee6Team_" },
         header: {
-        hasMediaAttachment: true,...(await prepareWAMessageMedia({ image: { url: pp } }, { upload: conn.waUploadToServer }))
+        hasMediaAttachment: true,...(await prepareWAMessageMedia({ image: { url: randomImage } }, { upload: conn.waUploadToServer }))
         },
         contextInfo: { 
           	mentionedJid: [m.sender], 
