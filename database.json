@@ -7909,7 +7909,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 5406,
+      "exp": 5426,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -44915,10 +44915,10 @@
       "lastSuccess": 1727946543854
     },
     "list.js": {
-      "total": 701,
-      "success": 616,
-      "last": 1727946600574,
-      "lastSuccess": 1727946600574
+      "total": 702,
+      "success": 617,
+      "last": 1727948840205,
+      "lastSuccess": 1727948840205
     },
     "gift.js": {
       "total": 4,
