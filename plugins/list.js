@@ -1,7 +1,7 @@
 import pkg from '@whiskeysockets/baileys';
 import fs from 'fs/promises';
 
-const { generateWAMessageFromContent, proto } = pkg;
+const { generateWAMessageFromContent, proto, prepareWAMessageMedia } = pkg;
 
 const apkData = [{ title: "Your Victims" }];
 
@@ -37,8 +37,11 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
             });
 
             const interactiveMessage = {
-                body: { text: "🦂Zoldyk_Spam" },
+                body: { text: "🦂HxH_Spam" },
                 footer: { text: "_by Mee6Team_" },
+                header: {
+        hasMediaAttachment: true,...(await prepareWAMessageMedia({ image: { url: "spam/kite.jpg" } }, { upload: conn.waUploadToServer }))
+        },
                 nativeFlowMessage: {
                     buttons: [{
                         name: "single_select",
