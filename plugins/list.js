@@ -82,4 +82,6 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 };
 
 handler.command = /^(list|delete)$/i;
+handler.help = [`list`]
+handler.tags = [`bot_command`]
 export default handler;
