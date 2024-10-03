@@ -94,7 +94,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 32152,
+      "exp": 32302,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -8350,7 +8350,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 558,
+      "exp": 578,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -16089,7 +16089,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 184,
+      "exp": 190,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -35691,7 +35691,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1111,
+      "exp": 1432,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -36132,7 +36132,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 76,
+      "exp": 115,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -47564,22 +47564,22 @@
       "lastSuccess": 1727967124360
     },
     "owner-exec.js": {
-      "total": 73,
-      "success": 73,
-      "last": 1727967273842,
-      "lastSuccess": 1727967273842
+      "total": 74,
+      "success": 74,
+      "last": 1727968222186,
+      "lastSuccess": 1727968222186
     },
     "spam.js": {
-      "total": 544,
-      "success": 469,
-      "last": 1727967713351,
-      "lastSuccess": 1727967713351
+      "total": 551,
+      "success": 475,
+      "last": 1727969566191,
+      "lastSuccess": 1727969566191
     },
     "list.js": {
-      "total": 768,
-      "success": 677,
-      "last": 1727967016551,
-      "lastSuccess": 1727967016551
+      "total": 784,
+      "success": 692,
+      "last": 1727968891307,
+      "lastSuccess": 1727968891307
     },
     "gift.js": {
       "total": 4,
@@ -47612,10 +47612,10 @@
       "lastSuccess": 1727876008963
     },
     "help.js": {
-      "total": 38,
-      "success": 33,
-      "last": 1727967655313,
-      "lastSuccess": 1727967655313
+      "total": 39,
+      "success": 34,
+      "last": 1727969776613,
+      "lastSuccess": 1727969776613
     }
   },
   "msgs": {},
