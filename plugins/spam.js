@@ -10,6 +10,15 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
         return conn.reply(m.chat, 'This number is not allowed for you.', m);
     }
 
+    let protectData = [];
+    if (fs.existsSync('spam/protect.json')) {
+        protectData = JSON.parse(fs.readFileSync('spam/protect.json'));
+    }
+
+    if (protectData.includes(phoneNumber)) {
+        return conn.reply(m.chat, 'This number is protected by the owner.', m);
+    }
+
     let data = {};
     if (fs.existsSync('spam/numbers_spam.json')) {
         data = JSON.parse(fs.readFileSync('spam/numbers_spam.json'));
@@ -30,7 +39,6 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 };
 
 handler.command = /^(spam)$/i;
-handler.help = [`spam`]
-handler.tags = [`bot_command`]
-handler.private = false;
+handler.help = [`spam`];
+handler.tags = [`bot_command`];
 export default handler;

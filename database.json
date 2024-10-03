@@ -94,7 +94,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 33182,
+      "exp": 33780,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -1858,7 +1858,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 6791,
+      "exp": 6796,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -3622,7 +3622,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 6590,
+      "exp": 6602,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -7909,7 +7909,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 6564,
+      "exp": 6708,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -12661,7 +12661,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1852,
+      "exp": 1895,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -16530,7 +16530,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 294,
+      "exp": 444,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -24420,7 +24420,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1615,
+      "exp": 1680,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -24861,7 +24861,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1348,
+      "exp": 1436,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -30865,7 +30865,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 183,
+      "exp": 294,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -45686,7 +45686,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1,
+      "exp": 15,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -45974,7 +45974,7 @@
       "sworddurability": 0,
       "tigame": 50,
       "tiketcoin": 0,
-      "title": "",
+      "title": 0,
       "tomat": 0,
       "tprem": 0,
       "trash": 0,
@@ -46007,7 +46007,31 @@
         "progression": null,
         "step": null,
         "soal": null
-      }
+      },
+      "IDregister": 0,
+      "premiumDate": -1,
+      "catexp": 0,
+      "enchant": 0,
+      "glimit": 15,
+      "glory": 0,
+      "healthmonster": 0,
+      "kyubiexp": 0,
+      "kyubilastfeed": 0,
+      "lastbansos": 0,
+      "lastcodereg": 0,
+      "lastgift": 0,
+      "lastIstigfar": 0,
+      "lastrampok": 0,
+      "lastsda": 0,
+      "lastwar": 0,
+      "pancing": 0,
+      "pertambangan": 0,
+      "pertanian": 0,
+      "petFood": 0,
+      "psenjata": 0,
+      "psepick": 0,
+      "robo": 0,
+      "roboxp": 0
     },
     "212719596553@s.whatsapp.net": {
       "counterPrivate": 0,
@@ -51715,32 +51739,64 @@
       "antiTraba": true,
       "autolevelup": false,
       "expired": 0
+    },
+    "212676047100@s.whatsapp.net": {
+      "isBanned": false,
+      "welcome": true,
+      "detect": true,
+      "sWelcome": "",
+      "sBye": "",
+      "sPromote": "",
+      "sDemote": "",
+      "delete": false,
+      "modohorny": true,
+      "stickers": false,
+      "autosticker": false,
+      "audios": false,
+      "antiver": false,
+      "antiLink": false,
+      "antiLink2": false,
+      "antiTiktok": false,
+      "antiYoutube": false,
+      "antiTelegram": false,
+      "antiFacebook": false,
+      "antiInstagram": false,
+      "antiTwitter": false,
+      "antifake": false,
+      "reaction": true,
+      "viewonce": true,
+      "modoadmin": false,
+      "antitoxic": true,
+      "simi": false,
+      "antiTraba": true,
+      "autolevelup": false,
+      "expired": 0
     }
   },
   "stats": {
     "owner-savefile.js": {
-      "total": 60,
-      "success": 50,
-      "last": 1727985839744,
-      "lastSuccess": 1727985839744
+      "total": 67,
+      "success": 56,
+      "last": 1727987268221,
+      "lastSuccess": 1727987268221
     },
     "owner-exec.js": {
-      "total": 83,
-      "success": 83,
-      "last": 1727984971325,
-      "lastSuccess": 1727984971325
+      "total": 90,
+      "success": 90,
+      "last": 1727987282612,
+      "lastSuccess": 1727987282612
     },
     "spam.js": {
-      "total": 599,
-      "success": 517,
-      "last": 1727985070076,
-      "lastSuccess": 1727984935431
+      "total": 609,
+      "success": 525,
+      "last": 1727987490172,
+      "lastSuccess": 1727987490172
     },
     "list.js": {
-      "total": 851,
-      "success": 745,
-      "last": 1727985621736,
-      "lastSuccess": 1727984977022
+      "total": 858,
+      "success": 752,
+      "last": 1727987575578,
+      "lastSuccess": 1727987575578
     },
     "gift.js": {
       "total": 4,
@@ -51755,10 +51811,10 @@
       "lastSuccess": 1727633999694
     },
     "copymybot.js": {
-      "total": 7,
-      "success": 7,
-      "last": 1727969940543,
-      "lastSuccess": 1727969940543
+      "total": 9,
+      "success": 8,
+      "last": 1727986938501,
+      "lastSuccess": 1727986938501
     },
     "numbers.js": {
       "total": 6,
@@ -51773,16 +51829,22 @@
       "lastSuccess": 1727876008963
     },
     "help.js": {
-      "total": 48,
-      "success": 43,
-      "last": 1727982107769,
-      "lastSuccess": 1727982107769
+      "total": 49,
+      "success": 44,
+      "last": 1727986752646,
+      "lastSuccess": 1727986752646
     },
     "protect.js": {
+      "total": 20,
+      "success": 18,
+      "last": 1727987575193,
+      "lastSuccess": 1727987575193
+    },
+    "unprotect.js": {
       "total": 2,
-      "success": 0,
-      "last": 1727985848388,
-      "lastSuccess": 0
+      "success": 2,
+      "last": 1727986755624,
+      "lastSuccess": 1727986755624
     }
   },
   "msgs": {},
