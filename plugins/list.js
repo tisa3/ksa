@@ -5,6 +5,16 @@ const { generateWAMessageFromContent, proto, prepareWAMessageMedia } = pkg;
 
 const apkData = [{ title: "Your Victims" }];
 
+const images = [
+  'spam/kite.jpg',
+  'spam/hxh1.jpeg',
+  'spam/hxh2.jpeg',
+  'spam/hxh3.jpeg',
+  'spam/hxh4.jpeg'
+];
+
+const randomImage = images[Math.floor(Math.random() * images.length)];
+
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
     if (command === 'list') {
         let userId = m.sender.split('@')[0];
@@ -40,7 +50,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
                 body: { text: "🦂HxH_Spam" },
                 footer: { text: "_by Mee6Team_" },
                 header: {
-        hasMediaAttachment: true,...(await prepareWAMessageMedia({ image: { url: "spam/kite.jpg" } }, { upload: conn.waUploadToServer }))
+        hasMediaAttachment: true,...(await prepareWAMessageMedia({ image: { url: randomImage } }, { upload: conn.waUploadToServer }))
         },
                 nativeFlowMessage: {
                     buttons: [{
