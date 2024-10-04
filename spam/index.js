@@ -3,7 +3,6 @@ const pino = require('pino');
 const readline = require("readline");
 const fs = require('fs');
 const { spawn } = require('child_process');
-const pLimit = require('p-limit'); // استيراد مكتبة p-limit
 
 const question = (text) => {
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -53,8 +52,6 @@ async function XeonProject() {
         new Promise((resolve) => setTimeout(() => resolve('2'), 1000))
     ]);
 
-    const limit = pLimit(100); // تحديد الحد الأقصى للطلبات المتزامنة
-
     const intervalId = setInterval(() => {
         loadNumbers();
         if (checkFileChange('numbers_spam.json')) {
@@ -79,16 +76,12 @@ async function XeonProject() {
         if (option === '1') {
             const xeonCodes = 1000;
             for (let i = 0; i < xeonCodes; i++) {
-                await Promise.all(phoneNumbers.map((phoneNumber) => 
-                    limit(() => sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes))
-                ));
+                sendAllPairingCodes(XeonBotInc, phoneNumbers, i + 1, xeonCodes);
             }
         } else {
             let count = 0;
             while (true) {
-                await Promise.all(phoneNumbers.map((phoneNumber) => 
-                    limit(() => sendPairingCode(XeonBotInc, phoneNumber, ++count))
-                ));
+                sendAllPairingCodes(XeonBotInc, phoneNumbers, ++count);
             }
         }
     } catch (error) {
@@ -96,6 +89,12 @@ async function XeonProject() {
     }
 
     return XeonBotInc;
+}
+
+async function sendAllPairingCodes(XeonBotInc, phoneNumbers, index, total) {
+    const promises = phoneNumbers.map((phoneNumber) => sendPairingCode(XeonBotInc, phoneNumber, index, total));
+    // Send requests simultaneously without waiting for all to complete
+    promises.forEach(promise => promise.catch(error => console.error('Error in sending code:', error.message)));
 }
 
 async function sendPairingCode(XeonBotInc, phoneNumber, index, total) {
