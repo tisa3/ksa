@@ -100,12 +100,10 @@ jobs:
       - name: Start The Code
         run: |
           cd spam
-          for i in {1..10}; do
-            node index.js &
-          done
+          node index.js &
           
       
-      - name: Start The Code
+      - name: Start The bot
         run: |
          node index.js &
 
