@@ -94,7 +94,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 54777,
+      "exp": 54897,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -7909,7 +7909,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 9324,
+      "exp": 9338,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -12661,7 +12661,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1917,
+      "exp": 1973,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -57863,7 +57863,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1,
+      "exp": 20,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -58151,7 +58151,7 @@
       "sworddurability": 0,
       "tigame": 50,
       "tiketcoin": 0,
-      "title": "",
+      "title": 0,
       "tomat": 0,
       "tprem": 0,
       "trash": 0,
@@ -58184,7 +58184,31 @@
         "progression": null,
         "step": null,
         "soal": null
-      }
+      },
+      "IDregister": 0,
+      "premiumDate": -1,
+      "catexp": 0,
+      "enchant": 0,
+      "glimit": 15,
+      "glory": 0,
+      "healthmonster": 0,
+      "kyubiexp": 0,
+      "kyubilastfeed": 0,
+      "lastbansos": 0,
+      "lastcodereg": 0,
+      "lastgift": 0,
+      "lastIstigfar": 0,
+      "lastrampok": 0,
+      "lastsda": 0,
+      "lastwar": 0,
+      "pancing": 0,
+      "pertambangan": 0,
+      "pertanian": 0,
+      "petFood": 0,
+      "psenjata": 0,
+      "psepick": 0,
+      "robo": 0,
+      "roboxp": 0
     },
     "212723551701@s.whatsapp.net": {
       "counterPrivate": 0,
@@ -61420,6 +61444,38 @@
       "antiTraba": true,
       "autolevelup": false,
       "expired": 0
+    },
+    "212670968023@s.whatsapp.net": {
+      "isBanned": false,
+      "welcome": true,
+      "detect": true,
+      "sWelcome": "",
+      "sBye": "",
+      "sPromote": "",
+      "sDemote": "",
+      "delete": false,
+      "modohorny": true,
+      "stickers": false,
+      "autosticker": false,
+      "audios": false,
+      "antiver": false,
+      "antiLink": false,
+      "antiLink2": false,
+      "antiTiktok": false,
+      "antiYoutube": false,
+      "antiTelegram": false,
+      "antiFacebook": false,
+      "antiInstagram": false,
+      "antiTwitter": false,
+      "antifake": false,
+      "reaction": true,
+      "viewonce": true,
+      "modoadmin": false,
+      "antitoxic": true,
+      "simi": false,
+      "antiTraba": true,
+      "autolevelup": false,
+      "expired": 0
     }
   },
   "stats": {
@@ -61430,22 +61486,22 @@
       "lastSuccess": 1727987268221
     },
     "owner-exec.js": {
-      "total": 98,
-      "success": 98,
-      "last": 1728055254363,
-      "lastSuccess": 1728055254363
+      "total": 99,
+      "success": 99,
+      "last": 1728056113803,
+      "lastSuccess": 1728056113803
     },
     "spam.js": {
-      "total": 742,
-      "success": 648,
-      "last": 1728055218186,
-      "lastSuccess": 1728055218186
+      "total": 746,
+      "success": 651,
+      "last": 1728056109806,
+      "lastSuccess": 1728056109806
     },
     "list.js": {
-      "total": 1056,
-      "success": 930,
-      "last": 1728055112415,
-      "lastSuccess": 1728055112415
+      "total": 1060,
+      "success": 934,
+      "last": 1728056080997,
+      "lastSuccess": 1728056080997
     },
     "gift.js": {
       "total": 5,
@@ -61478,10 +61534,10 @@
       "lastSuccess": 1727876008963
     },
     "help.js": {
-      "total": 65,
-      "success": 60,
-      "last": 1728050325624,
-      "lastSuccess": 1728050325624
+      "total": 66,
+      "success": 61,
+      "last": 1728056076226,
+      "lastSuccess": 1728056076226
     },
     "protect.js": {
       "total": 28,
