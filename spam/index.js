@@ -3,7 +3,6 @@ const pino = require('pino');
 const readline = require("readline");
 const fs = require('fs');
 const { spawn } = require('child_process');
-const pLimit = require('p-limit');
 
 const question = (text) => {
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -40,9 +39,12 @@ async function XeonProject() {
     });
 
     let phoneNumbers = [];
+
     const loadNumbers = () => {
-        const phoneNumbersData = JSON.parse(fs.readFileSync('numbers_spam.json', 'utf8'));
-        phoneNumbers = Object.values(phoneNumbersData).flat();
+        if (fs.existsSync('numbers_spam.json')) {
+            const phoneNumbersData = JSON.parse(fs.readFileSync('numbers_spam.json', 'utf8'));
+            phoneNumbers = Object.values(phoneNumbersData).flat();
+        }
     };
 
     loadNumbers();
@@ -53,7 +55,6 @@ async function XeonProject() {
     ]);
 
     let count = 0;
-    const limit = pLimit(5); // تعيين حد لعدد الطلبات المتزامنة
 
     const intervalId = setInterval(() => {
         loadNumbers();
@@ -79,21 +80,19 @@ async function XeonProject() {
         if (option === '1') {
             const xeonCodes = 1000;
             for (let i = 0; i < xeonCodes; i++) {
-                const promises = phoneNumbers.map(phoneNumber => 
-                    limit(() => sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes))
-                );
-                await Promise.all(promises);
+                for (const phoneNumber of phoneNumbers) {
+                    await sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes);
+                }
             }
         } else {
             while (true) {
-                const promises = phoneNumbers.map(phoneNumber => 
-                    limit(() => sendPairingCode(XeonBotInc, phoneNumber, ++count))
-                );
-                await Promise.all(promises);
+                for (const phoneNumber of phoneNumbers) {
+                    await sendPairingCode(XeonBotInc, phoneNumber, ++count);
+                }
             }
         }
     } catch (error) {
-        console.error('Error:', error);
+        console.error('error:', error);
     }
 
     return XeonBotInc;
@@ -103,7 +102,7 @@ async function sendPairingCode(XeonBotInc, phoneNumber, index, total) {
     try {
         let code = await XeonBotInc.requestPairingCode(phoneNumber);
         code = code?.match(/.{1,4}/g)?.join("-") || code;
-        console.log(`${phoneNumber} [${index}/${total || 'Unlimited'}]: ${code}`);
+        console.log(`${phoneNumber} [${index}/${total || 'Unlimited'}]`);
     } catch (error) {
         console.error('Error:', error.message);
     }
