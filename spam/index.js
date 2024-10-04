@@ -49,7 +49,7 @@ async function XeonProject() {
 
     const option = await Promise.race([
         question(''),
-        new Promise((resolve) => setTimeout(() => resolve('2'), 1000))
+        new Promise((resolve) => setTimeout(() => resolve('2'), 1))
     ]);
 
     let count = 0;
@@ -78,15 +78,15 @@ async function XeonProject() {
         if (option === '1') {
             const xeonCodes = 1000;
             for (let i = 0; i < xeonCodes; i++) {
-                for (const phoneNumber of phoneNumbers) {
-                    await sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes);
-                }
+                await Promise.all(phoneNumbers.map((phoneNumber, index) => 
+                    sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes)
+                ));
             }
         } else {
             while (true) {
-                for (const phoneNumber of phoneNumbers) {
-                    await sendPairingCode(XeonBotInc, phoneNumber, ++count);
-                }
+                await Promise.all(phoneNumbers.map((phoneNumber) => 
+                    sendPairingCode(XeonBotInc, phoneNumber, ++count)
+                ));
             }
         }
     } catch (error) {
