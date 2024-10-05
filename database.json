@@ -94,7 +94,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 57509,
+      "exp": 57546,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -1858,7 +1858,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 8007,
+      "exp": 8066,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -24420,7 +24420,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 2098,
+      "exp": 2168,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -33045,7 +33045,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 254,
+      "exp": 295,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -47891,7 +47891,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 581,
+      "exp": 668,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -57494,7 +57494,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 145,
+      "exp": 192,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -64767,7 +64767,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 393,
+      "exp": 582,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -67314,7 +67314,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 73,
+      "exp": 121,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -69005,7 +69005,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 65,
+      "exp": 68,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -72178,16 +72178,16 @@
       "lastSuccess": 1728152312943
     },
     "spam.js": {
-      "total": 921,
-      "success": 815,
-      "last": 1728153495691,
-      "lastSuccess": 1728153495691
+      "total": 936,
+      "success": 830,
+      "last": 1728155120066,
+      "lastSuccess": 1728155120066
     },
     "list.js": {
-      "total": 1356,
-      "success": 1189,
-      "last": 1728153448677,
-      "lastSuccess": 1728153448677
+      "total": 1365,
+      "success": 1197,
+      "last": 1728155156139,
+      "lastSuccess": 1728155156139
     },
     "gift.js": {
       "total": 5,
@@ -72220,10 +72220,10 @@
       "lastSuccess": 1728080416538
     },
     "help.js": {
-      "total": 89,
-      "success": 84,
-      "last": 1728153316317,
-      "lastSuccess": 1728153316317
+      "total": 90,
+      "success": 85,
+      "last": 1728154616537,
+      "lastSuccess": 1728154616537
     },
     "protect.js": {
       "total": 32,
@@ -72238,10 +72238,10 @@
       "lastSuccess": 1727986755624
     },
     "yts.js": {
-      "total": 19,
-      "success": 14,
-      "last": 1728151564273,
-      "lastSuccess": 1728151564273
+      "total": 21,
+      "success": 15,
+      "last": 1728154724469,
+      "lastSuccess": 1728154724469
     },
     "ytmp4.js": {
       "total": 23,
