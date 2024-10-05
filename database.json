@@ -22215,7 +22215,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 3265,
+      "exp": 3282,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -63420,7 +63420,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 126,
+      "exp": 180,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -66411,10 +66411,10 @@
       "lastSuccess": 1728080416538
     },
     "help.js": {
-      "total": 74,
-      "success": 69,
-      "last": 1728122373217,
-      "lastSuccess": 1728122373217
+      "total": 75,
+      "success": 70,
+      "last": 1728126525318,
+      "lastSuccess": 1728126525318
     },
     "protect.js": {
       "total": 31,
@@ -66435,10 +66435,10 @@
       "lastSuccess": 1728080106228
     },
     "ytmp4.js": {
-      "total": 10,
-      "success": 10,
-      "last": 1728125877807,
-      "lastSuccess": 1728125877807
+      "total": 13,
+      "success": 13,
+      "last": 1728127565396,
+      "lastSuccess": 1728127565396
     },
     "ytmp3.js": {
       "total": 3,
