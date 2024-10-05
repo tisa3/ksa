@@ -94,7 +94,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 57549,
+      "exp": 57631,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -1858,7 +1858,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 8066,
+      "exp": 8113,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -7027,7 +7027,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 502,
+      "exp": 511,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -24861,7 +24861,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 2216,
+      "exp": 2260,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -47891,7 +47891,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1318,
+      "exp": 1452,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -64767,7 +64767,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 816,
+      "exp": 915,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -67314,7 +67314,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 121,
+      "exp": 411,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -69887,7 +69887,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 82,
+      "exp": 227,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -73124,16 +73124,16 @@
       "lastSuccess": 1728152312943
     },
     "spam.js": {
-      "total": 977,
-      "success": 870,
-      "last": 1728163993352,
-      "lastSuccess": 1728163993352
+      "total": 987,
+      "success": 878,
+      "last": 1728165390148,
+      "lastSuccess": 1728165390148
     },
     "list.js": {
-      "total": 1412,
-      "success": 1240,
-      "last": 1728163437241,
-      "lastSuccess": 1728163437241
+      "total": 1437,
+      "success": 1263,
+      "last": 1728165659588,
+      "lastSuccess": 1728165659588
     },
     "gift.js": {
       "total": 5,
@@ -73166,10 +73166,10 @@
       "lastSuccess": 1728080416538
     },
     "help.js": {
-      "total": 96,
-      "success": 91,
-      "last": 1728158701877,
-      "lastSuccess": 1728158701877
+      "total": 98,
+      "success": 93,
+      "last": 1728164364698,
+      "lastSuccess": 1728164364698
     },
     "protect.js": {
       "total": 32,
