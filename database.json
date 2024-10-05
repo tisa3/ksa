@@ -94,7 +94,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 56521,
+      "exp": 56576,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -1858,7 +1858,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 7854,
+      "exp": 7868,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -44828,7 +44828,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 106,
+      "exp": 112,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -61706,7 +61706,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 10,
+      "exp": 29,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -61994,7 +61994,7 @@
       "sworddurability": 0,
       "tigame": 50,
       "tiketcoin": 0,
-      "title": "",
+      "title": 0,
       "tomat": 0,
       "tprem": 0,
       "trash": 0,
@@ -62027,7 +62027,31 @@
         "progression": null,
         "step": null,
         "soal": null
-      }
+      },
+      "IDregister": 0,
+      "premiumDate": -1,
+      "catexp": 0,
+      "enchant": 0,
+      "glimit": 15,
+      "glory": 0,
+      "healthmonster": 0,
+      "kyubiexp": 0,
+      "kyubilastfeed": 0,
+      "lastbansos": 0,
+      "lastcodereg": 0,
+      "lastgift": 0,
+      "lastIstigfar": 0,
+      "lastrampok": 0,
+      "lastsda": 0,
+      "lastwar": 0,
+      "pancing": 0,
+      "pertambangan": 0,
+      "pertanian": 0,
+      "petFood": 0,
+      "psenjata": 0,
+      "psepick": 0,
+      "robo": 0,
+      "roboxp": 0
     },
     "242571414634504@lid": {
       "counterPrivate": 0,
@@ -65009,10 +65033,10 @@
       "lastSuccess": 1728078097944
     },
     "owner-exec.js": {
-      "total": 100,
-      "success": 100,
-      "last": 1728078716512,
-      "lastSuccess": 1728078716512
+      "total": 102,
+      "success": 102,
+      "last": 1728112563937,
+      "lastSuccess": 1728112563937
     },
     "spam.js": {
       "total": 831,
@@ -65021,9 +65045,9 @@
       "lastSuccess": 1728079623005
     },
     "list.js": {
-      "total": 1200,
+      "total": 1201,
       "success": 1057,
-      "last": 1728082898540,
+      "last": 1728113206274,
       "lastSuccess": 1728082893902
     },
     "gift.js": {
