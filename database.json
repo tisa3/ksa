@@ -7909,7 +7909,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 11742,
+      "exp": 11757,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -46151,7 +46151,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 508,
+      "exp": 527,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -65045,10 +65045,10 @@
       "lastSuccess": 1728079623005
     },
     "list.js": {
-      "total": 1201,
-      "success": 1057,
-      "last": 1728113206274,
-      "lastSuccess": 1728082893902
+      "total": 1202,
+      "success": 1058,
+      "last": 1728115436792,
+      "lastSuccess": 1728115436792
     },
     "gift.js": {
       "total": 5,
@@ -65063,10 +65063,10 @@
       "lastSuccess": 1727633999694
     },
     "copymybot.js": {
-      "total": 13,
-      "success": 12,
-      "last": 1728084770831,
-      "lastSuccess": 1728084770831
+      "total": 14,
+      "success": 13,
+      "last": 1728114834962,
+      "lastSuccess": 1728114834962
     },
     "numbers.js": {
       "total": 6,
