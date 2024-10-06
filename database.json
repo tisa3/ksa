@@ -94,7 +94,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 59006,
+      "exp": 59040,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -3622,7 +3622,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 7733,
+      "exp": 7774,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -7027,7 +7027,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 599,
+      "exp": 602,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -12661,7 +12661,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 3898,
+      "exp": 4043,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -24861,7 +24861,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 2529,
+      "exp": 2532,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -53624,7 +53624,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 56,
+      "exp": 63,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -67314,7 +67314,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1890,
+      "exp": 1902,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -81059,7 +81059,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 90,
+      "exp": 128,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -88295,16 +88295,16 @@
       "lastSuccess": 1728241153515
     },
     "spam.js": {
-      "total": 1189,
-      "success": 1059,
-      "last": 1728248751763,
-      "lastSuccess": 1728248751763
+      "total": 1193,
+      "success": 1061,
+      "last": 1728249371114,
+      "lastSuccess": 1728249168930
     },
     "list.js": {
-      "total": 1642,
-      "success": 1457,
-      "last": 1728248789348,
-      "lastSuccess": 1728248789348
+      "total": 1644,
+      "success": 1459,
+      "last": 1728249158758,
+      "lastSuccess": 1728249158758
     },
     "gift.js": {
       "total": 6,
@@ -88355,16 +88355,16 @@
       "lastSuccess": 1727986755624
     },
     "yts.js": {
-      "total": 38,
-      "success": 31,
-      "last": 1728248561713,
-      "lastSuccess": 1728248561713
+      "total": 39,
+      "success": 32,
+      "last": 1728248969820,
+      "lastSuccess": 1728248969820
     },
     "ytmp4.js": {
-      "total": 42,
-      "success": 42,
-      "last": 1728248555211,
-      "lastSuccess": 1728248555211
+      "total": 43,
+      "success": 43,
+      "last": 1728249016964,
+      "lastSuccess": 1728249016964
     },
     "ytmp3.js": {
       "total": 40,
