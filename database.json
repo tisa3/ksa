@@ -94,7 +94,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 58286,
+      "exp": 58690,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -7909,7 +7909,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 14196,
+      "exp": 14297,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -12661,7 +12661,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 3181,
+      "exp": 3196,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -67314,7 +67314,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1208,
+      "exp": 1254,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -72019,7 +72019,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 29,
+      "exp": 105,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -73318,7 +73318,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 80,
+      "exp": 407,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -74200,7 +74200,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 39,
+      "exp": 51,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -77524,6 +77524,38 @@
       "antiTraba": true,
       "autolevelup": false,
       "expired": 0
+    },
+    "212715887091@s.whatsapp.net": {
+      "isBanned": false,
+      "welcome": true,
+      "detect": true,
+      "sWelcome": "",
+      "sBye": "",
+      "sPromote": "",
+      "sDemote": "",
+      "delete": false,
+      "modohorny": true,
+      "stickers": false,
+      "autosticker": false,
+      "audios": false,
+      "antiver": false,
+      "antiLink": false,
+      "antiLink2": false,
+      "antiTiktok": false,
+      "antiYoutube": false,
+      "antiTelegram": false,
+      "antiFacebook": false,
+      "antiInstagram": false,
+      "antiTwitter": false,
+      "antifake": false,
+      "reaction": true,
+      "viewonce": true,
+      "modoadmin": false,
+      "antitoxic": true,
+      "simi": false,
+      "antiTraba": true,
+      "autolevelup": false,
+      "expired": 0
     }
   },
   "stats": {
@@ -77540,16 +77572,16 @@
       "lastSuccess": 1728152312943
     },
     "spam.js": {
-      "total": 1050,
-      "success": 936,
-      "last": 1728220563367,
-      "lastSuccess": 1728220563367
+      "total": 1056,
+      "success": 942,
+      "last": 1728223311515,
+      "lastSuccess": 1728223311515
     },
     "list.js": {
-      "total": 1522,
-      "success": 1342,
-      "last": 1728221536847,
-      "lastSuccess": 1728221536847
+      "total": 1533,
+      "success": 1353,
+      "last": 1728223463741,
+      "lastSuccess": 1728223463741
     },
     "gift.js": {
       "total": 5,
@@ -77582,16 +77614,16 @@
       "lastSuccess": 1728080416538
     },
     "help.js": {
-      "total": 110,
-      "success": 105,
-      "last": 1728217800825,
-      "lastSuccess": 1728217800825
+      "total": 118,
+      "success": 113,
+      "last": 1728222811601,
+      "lastSuccess": 1728222811601
     },
     "protect.js": {
-      "total": 33,
-      "success": 31,
-      "last": 1728221062315,
-      "lastSuccess": 1728221062315
+      "total": 34,
+      "success": 32,
+      "last": 1728222833727,
+      "lastSuccess": 1728222833727
     },
     "unprotect.js": {
       "total": 2,
@@ -77600,10 +77632,10 @@
       "lastSuccess": 1727986755624
     },
     "yts.js": {
-      "total": 29,
-      "success": 22,
-      "last": 1728218099705,
-      "lastSuccess": 1728218099705
+      "total": 30,
+      "success": 23,
+      "last": 1728222971550,
+      "lastSuccess": 1728222971550
     },
     "ytmp4.js": {
       "total": 36,
@@ -77612,10 +77644,10 @@
       "lastSuccess": 1728217382308
     },
     "ytmp3.js": {
-      "total": 34,
-      "success": 34,
-      "last": 1728218295786,
-      "lastSuccess": 1728218295786
+      "total": 35,
+      "success": 35,
+      "last": 1728223001007,
+      "lastSuccess": 1728223001007
     },
     "on-off.js": {
       "total": 6,
