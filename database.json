@@ -51860,7 +51860,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 242,
+      "exp": 578,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -73601,22 +73601,22 @@
       "lastSuccess": 1727986755624
     },
     "yts.js": {
-      "total": 26,
-      "success": 19,
-      "last": 1728180530800,
-      "lastSuccess": 1728180530800
+      "total": 28,
+      "success": 21,
+      "last": 1728181725486,
+      "lastSuccess": 1728181725486
     },
     "ytmp4.js": {
-      "total": 31,
-      "success": 31,
-      "last": 1728172911603,
-      "lastSuccess": 1728172911603
+      "total": 32,
+      "success": 32,
+      "last": 1728181844966,
+      "lastSuccess": 1728181844966
     },
     "ytmp3.js": {
-      "total": 16,
-      "success": 16,
-      "last": 1728180650856,
-      "lastSuccess": 1728180650856
+      "total": 30,
+      "success": 30,
+      "last": 1728182226841,
+      "lastSuccess": 1728182226841
     },
     "on-off.js": {
       "total": 6,
