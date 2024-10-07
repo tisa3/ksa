@@ -1858,7 +1858,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 8569,
+      "exp": 8602,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -2740,7 +2740,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 186,
+      "exp": 193,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -47891,7 +47891,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1725,
+      "exp": 1770,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -51860,7 +51860,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 578,
+      "exp": 1002,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -53183,7 +53183,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 511,
+      "exp": 547,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -70328,7 +70328,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 56,
+      "exp": 77,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -81059,7 +81059,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 359,
+      "exp": 414,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -81941,7 +81941,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 774,
+      "exp": 889,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -90972,6 +90972,38 @@
       "antiTraba": true,
       "autolevelup": false,
       "expired": 0
+    },
+    "212621851554@s.whatsapp.net": {
+      "isBanned": false,
+      "welcome": true,
+      "detect": true,
+      "sWelcome": "",
+      "sBye": "",
+      "sPromote": "",
+      "sDemote": "",
+      "delete": false,
+      "modohorny": true,
+      "stickers": false,
+      "autosticker": false,
+      "audios": false,
+      "antiver": false,
+      "antiLink": false,
+      "antiLink2": false,
+      "antiTiktok": false,
+      "antiYoutube": false,
+      "antiTelegram": false,
+      "antiFacebook": false,
+      "antiInstagram": false,
+      "antiTwitter": false,
+      "antifake": false,
+      "reaction": true,
+      "viewonce": true,
+      "modoadmin": false,
+      "antitoxic": true,
+      "simi": false,
+      "antiTraba": true,
+      "autolevelup": false,
+      "expired": 0
     }
   },
   "stats": {
@@ -90982,22 +91014,22 @@
       "lastSuccess": 1728138626761
     },
     "owner-exec.js": {
-      "total": 121,
-      "success": 121,
-      "last": 1728256889887,
-      "lastSuccess": 1728256889887
+      "total": 122,
+      "success": 122,
+      "last": 1728259392778,
+      "lastSuccess": 1728259392778
     },
     "spam.js": {
-      "total": 1211,
-      "success": 1075,
-      "last": 1728256141741,
-      "lastSuccess": 1728256141741
+      "total": 1216,
+      "success": 1077,
+      "last": 1728259974852,
+      "lastSuccess": 1728259974852
     },
     "list.js": {
-      "total": 1661,
-      "success": 1475,
-      "last": 1728256189911,
-      "lastSuccess": 1728256189911
+      "total": 1666,
+      "success": 1480,
+      "last": 1728257828033,
+      "lastSuccess": 1728257828033
     },
     "gift.js": {
       "total": 6,
@@ -91030,10 +91062,10 @@
       "lastSuccess": 1728080416538
     },
     "help.js": {
-      "total": 126,
-      "success": 121,
-      "last": 1728256178780,
-      "lastSuccess": 1728256178780
+      "total": 127,
+      "success": 122,
+      "last": 1728257814258,
+      "lastSuccess": 1728257814258
     },
     "protect.js": {
       "total": 41,
@@ -91048,22 +91080,22 @@
       "lastSuccess": 1727986755624
     },
     "yts.js": {
-      "total": 41,
-      "success": 33,
-      "last": 1728252041697,
-      "lastSuccess": 1728252041697
+      "total": 43,
+      "success": 35,
+      "last": 1728259392832,
+      "lastSuccess": 1728259392832
     },
     "ytmp4.js": {
-      "total": 45,
-      "success": 45,
-      "last": 1728252065643,
-      "lastSuccess": 1728252065643
+      "total": 56,
+      "success": 56,
+      "last": 1728260980053,
+      "lastSuccess": 1728260980053
     },
     "ytmp3.js": {
-      "total": 40,
-      "success": 40,
-      "last": 1728248579660,
-      "lastSuccess": 1728248579660
+      "total": 51,
+      "success": 51,
+      "last": 1728260308339,
+      "lastSuccess": 1728260308339
     },
     "on-off.js": {
       "total": 7,
