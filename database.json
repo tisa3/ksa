@@ -7909,7 +7909,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 15978,
+      "exp": 16075,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -55730,7 +55730,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 45,
+      "exp": 148,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -93649,6 +93649,38 @@
       "antiTraba": true,
       "autolevelup": false,
       "expired": 0
+    },
+    "212699108324@s.whatsapp.net": {
+      "isBanned": false,
+      "welcome": true,
+      "detect": true,
+      "sWelcome": "",
+      "sBye": "",
+      "sPromote": "",
+      "sDemote": "",
+      "delete": false,
+      "modohorny": true,
+      "stickers": false,
+      "autosticker": false,
+      "audios": false,
+      "antiver": false,
+      "antiLink": false,
+      "antiLink2": false,
+      "antiTiktok": false,
+      "antiYoutube": false,
+      "antiTelegram": false,
+      "antiFacebook": false,
+      "antiInstagram": false,
+      "antiTwitter": false,
+      "antifake": false,
+      "reaction": true,
+      "viewonce": true,
+      "modoadmin": false,
+      "antitoxic": true,
+      "simi": false,
+      "antiTraba": true,
+      "autolevelup": false,
+      "expired": 0
     }
   },
   "stats": {
@@ -93665,16 +93697,16 @@
       "lastSuccess": 1728259392778
     },
     "spam.js": {
-      "total": 1225,
-      "success": 1084,
-      "last": 1728295705303,
-      "lastSuccess": 1728295705303
+      "total": 1227,
+      "success": 1086,
+      "last": 1728296207949,
+      "lastSuccess": 1728296207949
     },
     "list.js": {
-      "total": 1672,
-      "success": 1486,
-      "last": 1728295728335,
-      "lastSuccess": 1728295728335
+      "total": 1676,
+      "success": 1490,
+      "last": 1728296262541,
+      "lastSuccess": 1728296262541
     },
     "gift.js": {
       "total": 6,
@@ -93689,10 +93721,10 @@
       "lastSuccess": 1727633999694
     },
     "copymybot.js": {
-      "total": 44,
-      "success": 40,
-      "last": 1728292534238,
-      "lastSuccess": 1728292533247
+      "total": 48,
+      "success": 42,
+      "last": 1728297320401,
+      "lastSuccess": 1728297320401
     },
     "numbers.js": {
       "total": 6,
@@ -93707,10 +93739,10 @@
       "lastSuccess": 1728080416538
     },
     "help.js": {
-      "total": 131,
-      "success": 126,
-      "last": 1728293379993,
-      "lastSuccess": 1728293379993
+      "total": 133,
+      "success": 128,
+      "last": 1728297271352,
+      "lastSuccess": 1728297271352
     },
     "protect.js": {
       "total": 41,
