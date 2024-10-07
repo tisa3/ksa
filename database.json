@@ -8350,7 +8350,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 657,
+      "exp": 674,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -69005,7 +69005,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 494,
+      "exp": 503,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -81059,7 +81059,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 957,
+      "exp": 989,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -106427,7 +106427,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 38,
+      "exp": 66,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -110717,7 +110717,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 120,
+      "exp": 295,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -121838,10 +121838,10 @@
       "lastSuccess": 1728303255435
     },
     "spam.js": {
-      "total": 1246,
-      "success": 1102,
-      "last": 1728308026347,
-      "lastSuccess": 1728308026347
+      "total": 1247,
+      "success": 1103,
+      "last": 1728309334417,
+      "lastSuccess": 1728309334417
     },
     "list.js": {
       "total": 1693,
@@ -121880,10 +121880,10 @@
       "lastSuccess": 1728080416538
     },
     "help.js": {
-      "total": 190,
-      "success": 185,
-      "last": 1728308151870,
-      "lastSuccess": 1728308151870
+      "total": 192,
+      "success": 187,
+      "last": 1728308891006,
+      "lastSuccess": 1728308891006
     },
     "protect.js": {
       "total": 41,
@@ -121898,16 +121898,16 @@
       "lastSuccess": 1727986755624
     },
     "yts.js": {
-      "total": 67,
-      "success": 57,
-      "last": 1728308144181,
-      "lastSuccess": 1728308004881
+      "total": 70,
+      "success": 60,
+      "last": 1728308844461,
+      "lastSuccess": 1728308844461
     },
     "ytmp4.js": {
-      "total": 77,
-      "success": 77,
-      "last": 1728308258012,
-      "lastSuccess": 1728308258012
+      "total": 81,
+      "success": 81,
+      "last": 1728309066173,
+      "lastSuccess": 1728309066173
     },
     "ytmp3.js": {
       "total": 62,
