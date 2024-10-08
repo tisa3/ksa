@@ -64791,7 +64791,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1269,
+      "exp": 1324,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -67338,7 +67338,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 2527,
+      "exp": 2561,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -81107,7 +81107,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1162,
+      "exp": 1222,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -110813,7 +110813,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 1140,
+      "exp": 1178,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -141938,7 +141938,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 9,
+      "exp": 105,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -142226,7 +142226,7 @@
       "sworddurability": 0,
       "tigame": 50,
       "tiketcoin": 0,
-      "title": "",
+      "title": 0,
       "tomat": 0,
       "tprem": 0,
       "trash": 0,
@@ -142259,7 +142259,31 @@
         "progression": null,
         "step": null,
         "soal": null
-      }
+      },
+      "IDregister": 0,
+      "premiumDate": -1,
+      "catexp": 0,
+      "enchant": 0,
+      "glimit": 15,
+      "glory": 0,
+      "healthmonster": 0,
+      "kyubiexp": 0,
+      "kyubilastfeed": 0,
+      "lastbansos": 0,
+      "lastcodereg": 0,
+      "lastgift": 0,
+      "lastIstigfar": 0,
+      "lastrampok": 0,
+      "lastsda": 0,
+      "lastwar": 0,
+      "pancing": 0,
+      "pertambangan": 0,
+      "pertanian": 0,
+      "petFood": 0,
+      "psenjata": 0,
+      "psepick": 0,
+      "robo": 0,
+      "roboxp": 0
     }
   },
   "chats": {
@@ -148268,10 +148292,10 @@
       "lastSuccess": 1728384661582
     },
     "list.js": {
-      "total": 1799,
-      "success": 1603,
-      "last": 1728384676284,
-      "lastSuccess": 1728384676284
+      "total": 1807,
+      "success": 1607,
+      "last": 1728386644550,
+      "lastSuccess": 1728386644550
     },
     "gift.js": {
       "total": 8,
@@ -148304,10 +148328,10 @@
       "lastSuccess": 1728080416538
     },
     "help.js": {
-      "total": 232,
-      "success": 224,
-      "last": 1728383123763,
-      "lastSuccess": 1728383123763
+      "total": 234,
+      "success": 226,
+      "last": 1728386170012,
+      "lastSuccess": 1728386170012
     },
     "protect.js": {
       "total": 44,
@@ -148322,16 +148346,16 @@
       "lastSuccess": 1727986755624
     },
     "yts.js": {
-      "total": 111,
-      "success": 100,
-      "last": 1728380983412,
-      "lastSuccess": 1728380983412
+      "total": 113,
+      "success": 102,
+      "last": 1728386194118,
+      "lastSuccess": 1728386194118
     },
     "ytmp4.js": {
-      "total": 106,
-      "success": 106,
-      "last": 1728383144956,
-      "lastSuccess": 1728383144956
+      "total": 107,
+      "success": 107,
+      "last": 1728386209516,
+      "lastSuccess": 1728386209516
     },
     "ytmp3.js": {
       "total": 81,
