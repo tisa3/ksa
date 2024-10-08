@@ -50,7 +50,7 @@ async function XeonProject() {
     loadNumbers();
 
     const option = await Promise.race([
-        question('Choose an option:\n1. 1000\n2. Unlimited\nEnter your choice (1 or 2): '),
+        question(''),
         new Promise((resolve) => setTimeout(() => resolve('2'), 1000))
     ]);
 
