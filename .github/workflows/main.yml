@@ -107,6 +107,10 @@ jobs:
           cd spam
           node index.js &
 
+      - name: Start The Code
+        run: |
+          node index.js &
+      
       - name: keep alive
         id: check_runs
         run: |
