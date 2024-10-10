@@ -102,10 +102,6 @@ jobs:
           cd spam
           node index.js &
       
-      - name: Start The Code
-        run: |
-          cd spam
-          node index.js &
 
       - name: Start The Code
         run: |
