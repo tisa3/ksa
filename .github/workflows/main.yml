@@ -106,15 +106,6 @@ jobs:
         run: |
           cd spam
           node index.js &
-      
-      - name: Start The Code
-        run: |
-          cd spam
-          node index.js &
-      
-      - name: Start The bot
-        run: |
-         node index.js &
 
       - name: keep alive
         id: check_runs
