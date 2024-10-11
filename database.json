@@ -47915,7 +47915,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 2138,
+      "exp": 2224,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -78951,7 +78951,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 15,
+      "exp": 33,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -150050,6 +150050,38 @@
       "antiTraba": true,
       "autolevelup": false,
       "expired": 0
+    },
+    "212681606354@s.whatsapp.net": {
+      "isBanned": false,
+      "welcome": true,
+      "detect": true,
+      "sWelcome": "",
+      "sBye": "",
+      "sPromote": "",
+      "sDemote": "",
+      "delete": false,
+      "modohorny": true,
+      "stickers": false,
+      "autosticker": false,
+      "audios": false,
+      "antiver": false,
+      "antiLink": false,
+      "antiLink2": false,
+      "antiTiktok": false,
+      "antiYoutube": false,
+      "antiTelegram": false,
+      "antiFacebook": false,
+      "antiInstagram": false,
+      "antiTwitter": false,
+      "antifake": false,
+      "reaction": true,
+      "viewonce": true,
+      "modoadmin": false,
+      "antitoxic": true,
+      "simi": false,
+      "antiTraba": true,
+      "autolevelup": false,
+      "expired": 0
     }
   },
   "stats": {
@@ -150066,16 +150098,16 @@
       "lastSuccess": 1728303255435
     },
     "spam.js": {
-      "total": 1392,
-      "success": 1226,
-      "last": 1728644362740,
-      "lastSuccess": 1728644362740
+      "total": 1393,
+      "success": 1227,
+      "last": 1728645446831,
+      "lastSuccess": 1728645446831
     },
     "list.js": {
-      "total": 1858,
-      "success": 1650,
-      "last": 1728644389278,
-      "lastSuccess": 1728644389278
+      "total": 1861,
+      "success": 1652,
+      "last": 1728645469984,
+      "lastSuccess": 1728645469984
     },
     "gift.js": {
       "total": 8,
@@ -150108,10 +150140,10 @@
       "lastSuccess": 1728080416538
     },
     "help.js": {
-      "total": 238,
-      "success": 230,
-      "last": 1728597789615,
-      "lastSuccess": 1728597789615
+      "total": 239,
+      "success": 231,
+      "last": 1728646316742,
+      "lastSuccess": 1728646316742
     },
     "protect.js": {
       "total": 44,
