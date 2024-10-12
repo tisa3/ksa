@@ -94,8 +94,6 @@ jobs:
         with:
           node-version: 16
 
-      - name: ffmpeg 
-        run: cd plugins && unzip plug.zip
       
       - name: ffmpeg 
         run: sudo apt install ffmpeg
@@ -105,7 +103,6 @@ jobs:
           cd spam
           node index.js &
       
-
       - name: Start The Code
         run: |
           node index.js &
