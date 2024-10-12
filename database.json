@@ -3622,7 +3622,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 12731,
+      "exp": 12885,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -7027,7 +7027,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 758,
+      "exp": 760,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -7909,7 +7909,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 19298,
+      "exp": 19325,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -15648,7 +15648,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 728,
+      "exp": 745,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -16089,7 +16089,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 648,
+      "exp": 687,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -39610,7 +39610,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 893,
+      "exp": 914,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -47915,7 +47915,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 2978,
+      "exp": 3040,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -48797,7 +48797,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 4221,
+      "exp": 4265,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -70376,7 +70376,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 133,
+      "exp": 181,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -151003,7 +151003,7 @@
       "emas": 0,
       "emerald": 0,
       "esteh": 0,
-      "exp": 16,
+      "exp": 40,
       "expg": 0,
       "exphero": 0,
       "expired": 0,
@@ -151291,7 +151291,7 @@
       "sworddurability": 0,
       "tigame": 50,
       "tiketcoin": 0,
-      "title": "",
+      "title": 0,
       "tomat": 0,
       "tprem": 0,
       "trash": 0,
@@ -151324,7 +151324,31 @@
         "progression": null,
         "step": null,
         "soal": null
-      }
+      },
+      "IDregister": 0,
+      "premiumDate": -1,
+      "catexp": 0,
+      "enchant": 0,
+      "glimit": 15,
+      "glory": 0,
+      "healthmonster": 0,
+      "kyubiexp": 0,
+      "kyubilastfeed": 0,
+      "lastbansos": 0,
+      "lastcodereg": 0,
+      "lastgift": 0,
+      "lastIstigfar": 0,
+      "lastrampok": 0,
+      "lastsda": 0,
+      "lastwar": 0,
+      "pancing": 0,
+      "pertambangan": 0,
+      "pertanian": 0,
+      "petFood": 0,
+      "psenjata": 0,
+      "psepick": 0,
+      "robo": 0,
+      "roboxp": 0
     },
     "28695045632080@lid": {
       "counterPrivate": 0,
@@ -161260,16 +161284,16 @@
       "lastSuccess": 1728741741665
     },
     "spam.js": {
-      "total": 1464,
-      "success": 1286,
-      "last": 1728752503394,
-      "lastSuccess": 1728752503394
+      "total": 1466,
+      "success": 1288,
+      "last": 1728754149608,
+      "lastSuccess": 1728754149608
     },
     "list.js": {
-      "total": 1947,
-      "success": 1725,
-      "last": 1728751807050,
-      "lastSuccess": 1728751807050
+      "total": 1951,
+      "success": 1728,
+      "last": 1728754345648,
+      "lastSuccess": 1728754163448
     },
     "gift.js": {
       "total": 8,
@@ -161284,10 +161308,10 @@
       "lastSuccess": 1727633999694
     },
     "copymybot.js": {
-      "total": 87,
-      "success": 72,
-      "last": 1728751668360,
-      "lastSuccess": 1728750158355
+      "total": 88,
+      "success": 73,
+      "last": 1728753797360,
+      "lastSuccess": 1728753797360
     },
     "numbers.js": {
       "total": 6,
@@ -161302,10 +161326,10 @@
       "lastSuccess": 1728080416538
     },
     "help.js": {
-      "total": 265,
-      "success": 257,
-      "last": 1728751446551,
-      "lastSuccess": 1728751446551
+      "total": 267,
+      "success": 259,
+      "last": 1728753740731,
+      "lastSuccess": 1728753740731
     },
     "protect.js": {
       "total": 47,
