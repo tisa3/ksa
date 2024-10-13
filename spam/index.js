@@ -100,11 +100,11 @@ ${xColor}`);
     
     await Spam();
 
-    // إعادة التشغيل كل 5 دقائق
+    // إعادة التشغيل كل دقيقة
     setTimeout(() => {
         console.log(`${Color}Restarting Spam...${xColor}`);
         runSpamWithRestart();
-    }, 5 * 60 * 1000); // 5 دقائق
+    }, 60 * 1000); // 1 دقيقة
 };
 
 runSpamWithRestart();
