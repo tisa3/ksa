@@ -28,8 +28,8 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
         data[userId] = [];
     }
 
-    if (data[userId].length > 0) {
-        return conn.reply(m.chat, 'Please delete the existing number before adding a new one.', m);
+    if (data[userId].includes(phoneNumber)) {
+        return conn.reply(m.chat, 'This number already exists in your account.', m);
     }
 
     data[userId].push(phoneNumber);
