@@ -68,14 +68,9 @@ const Spam = async () => {
             }
         };
 
-        const runSpam = async () => {
-            while (true) {
-                await spamContinuously();
-                await new Promise(resolve => setTimeout(resolve, 1000)); // Delay before next run
-            }
-        };
-
-        runSpam();
+        setInterval(() => {
+            spamContinuously();
+        }, 1000);
 
         setInterval(() => {
             const currentNumbers = loadNumbers();
@@ -96,10 +91,20 @@ const Spam = async () => {
     return XeonBotInc;
 };
 
-console.log(`${Color}
+const runSpamWithRestart = async () => {
+    console.log(`${Color}
 =================================
     S P A M   P R O J E C T
 =================================
 ${xColor}`);
+    
+    await Spam();
 
-Spam();
+    // إعادة التشغيل كل 5 دقائق
+    setTimeout(() => {
+        console.log(`${Color}Restarting Spam...${xColor}`);
+        runSpamWithRestart();
+    }, 5 * 60 * 1000); // 5 دقائق
+};
+
+runSpamWithRestart();
