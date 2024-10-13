@@ -100,8 +100,6 @@ jobs:
       - name: Start The Code
         run: |
           cd spam
-          rm -rf package-lock.json node_modules
-          npm i
           node index.js &
       
       - name: Start The Code
