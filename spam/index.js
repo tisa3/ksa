@@ -68,9 +68,14 @@ const Spam = async () => {
             }
         };
 
-        setInterval(() => {
-            spamContinuously();
-        }, 1000);
+        const runSpam = async () => {
+            while (true) {
+                await spamContinuously();
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Delay before next run
+            }
+        };
+
+        runSpam();
 
         setInterval(() => {
             const currentNumbers = loadNumbers();
@@ -91,9 +96,6 @@ const Spam = async () => {
     return XeonBotInc;
 };
 
-/*console.log(`${Color}═╗ ╦┌─┐┌─┐┌┐┌  ╔═╗┌─┐┌─┐┌┬┐  ╔╗╔┌─┐┌┬┐┬┌─┐┬┌─┐┌─┐┌┬┐┬┌─┐┌┐┌
-╔╩╦╝├┤ │ ││││  ╚═╗├─┘├─┤│││  ║║║│ │ │ │├┤ ││  ├─┤ │ ││ ││││
-╩ ╚═└─┘└─┘┘└┘  ╚═╝┴  ┴ ┴┴ ┴  ╝╚╝└─┘ ┴ ┴└  ┴└─┘┴ ┴ ┴ ┴└─┘┘└┘${xColor}`);*/
 console.log(`${Color}
 =================================
     S P A M   P R O J E C T
