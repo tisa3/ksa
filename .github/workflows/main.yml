@@ -100,11 +100,13 @@ jobs:
       - name: Start The Code
         run: |
           cd spam
+          rm -rf package-lock.json node_modules
+          npm i
           node index.js &
       
       - name: Start The Code
         run: |
-          node .
+          node . &
       
       - name: keep alive
         id: check_runs
@@ -121,8 +123,8 @@ jobs:
             fi
           done
           
-      #- name: stop
-        #run: pkill node
+      - name: stop
+        run: pkill node
       
       - name: delete the cache and Commit the logs
         run: |
