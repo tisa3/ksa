@@ -121,8 +121,8 @@ jobs:
             fi
           done
           
-      - name: stop
-        run: pkill node
+      #- name: stop
+        #run: pkill node
       
       - name: delete the cache and Commit the logs
         run: |
