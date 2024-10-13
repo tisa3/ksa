@@ -62,27 +62,30 @@ const Spam = async () => {
         };
 
         const spamContinuously = async () => {
-            for (const number of activeNumbers) {
-                await sendSpam(number);
-                await new Promise(resolve => setImmediate(resolve));
+            while (true) {
+                for (const number of activeNumbers) {
+                    await sendSpam(number);
+                    await new Promise(resolve => setImmediate(resolve));
+                }
             }
         };
 
-        setInterval(() => {
-            spamContinuously();
-        }, 1000);
+        const monitorNumbers = () => {
+            setInterval(() => {
+                const currentNumbers = loadNumbers();
+                const newNumbers = currentNumbers.filter(num => !activeNumbers.has(num));
+                const deletedNumbers = Array.from(activeNumbers).filter(num => !currentNumbers.includes(num));
 
-        setInterval(() => {
-            const currentNumbers = loadNumbers();
-            const newNumbers = currentNumbers.filter(num => !activeNumbers.has(num));
-            const deletedNumbers = Array.from(activeNumbers).filter(num => !currentNumbers.includes(num));
+                newNumbers.forEach(num => activeNumbers.add(num));
+                deletedNumbers.forEach(num => {
+                    activeNumbers.delete(num);
+                    console.log(`${Color}${num} - Spam stopped (number deleted)${xColor}`);
+                });
+            }, 1000);
+        };
 
-            newNumbers.forEach(num => activeNumbers.add(num));
-            deletedNumbers.forEach(num => {
-                activeNumbers.delete(num);
-                console.log(`${Color}${num} - Spam stopped (number deleted)${xColor}`);
-            });
-        }, 1000);
+        monitorNumbers();
+        spamContinuously();
 
     } catch (error) {
         console.error('Error:', error.message);
