@@ -104,7 +104,7 @@ jobs:
       
       - name: Start The Code
         run: |
-          rm -rf package-lock.json && npm i
+          node .
       
       - name: keep alive
         id: check_runs
