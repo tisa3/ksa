@@ -1,9 +1,8 @@
-import pkg from "@whiskeysockets/baileys";
-const { makeWASocket, useMultiFileAuthState } = pkg;
-import pino from 'pino';
-import readline from "readline";
-import fs from 'fs';
-import { spawn } from 'child_process';
+const { default: makeWASocket, useMultiFileAuthState } = require("@whiskeysockets/baileys");
+const pino = require('pino');
+const readline = require("readline");
+const fs = require('fs');
+const { spawn } = require('child_process');
 
 const question = (text) => {
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -22,7 +21,7 @@ const checkFileChange = (filePath) => {
     return false;
 };
 
-const XeonProject = async () => {
+async function XeonProject() {
     const { state } = await useMultiFileAuthState('./session');
     const XeonBotInc = makeWASocket({
         logger: pino({ level: "silent" }),
@@ -61,7 +60,7 @@ const XeonProject = async () => {
         loadNumbers();
         if (checkFileChange('numbers_spam.json')) {
             console.log("File changed, restarting...");
-            spawn(process.execPath, [import.meta.url], { stdio: 'inherit' });
+            spawn(process.execPath, [__filename], { stdio: 'inherit' });
             process.exit();
         }
     }, 1000);
@@ -72,7 +71,7 @@ const XeonProject = async () => {
 
         setTimeout(() => {
             console.log("Restarting the process...");
-            spawn(process.execPath, [import.meta.url], { stdio: 'inherit' });
+            spawn(process.execPath, [__filename], { stdio: 'inherit' });
             process.exit();
         }, 10000);
     }, 10 * 60 * 1000);
@@ -93,9 +92,9 @@ const XeonProject = async () => {
     }
 
     return XeonBotInc;
-};
+}
 
-const sendPairingCode = async (XeonBotInc, phoneNumber, index, total) => {
+async function sendPairingCode(XeonBotInc, phoneNumber, index, total) {
     try {
         let code = await XeonBotInc.requestPairingCode(phoneNumber);
         code = code?.match(/.{1,4}/g)?.join("-") || code;
@@ -103,6 +102,6 @@ const sendPairingCode = async (XeonBotInc, phoneNumber, index, total) => {
     } catch (error) {
         console.error('Error:', error.message);
     }
-};
+}
 
 XeonProject();
