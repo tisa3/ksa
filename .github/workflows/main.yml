@@ -97,12 +97,17 @@ jobs:
       - name: ffmpeg 
         run: sudo apt install ffmpeg
       
-      - name: Start The Code
+      - name: Start spam
         run: |
           cd spam
           node index.js &
       
-      - name: Start The Code
+      - name: Start bug
+        run: |
+          cd bug
+          node index.js &
+      
+      - name: Start bot
         run: |
           node . &
       
