@@ -101,11 +101,7 @@ jobs:
         run: |
           cd spam
           node index.js &
-      
-      - name: Start bug
-        run: |
-          cd bug
-          node index.js &
+     
       
       - name: Start bot
         run: |
