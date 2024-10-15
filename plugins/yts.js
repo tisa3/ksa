@@ -5,7 +5,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
     if (!args[0]) throw 'Ex: ' + usedPrefix + command + ' Twice';
 
     const query = encodeURIComponent(text);
-    const apiURL = `https://deliriusapi-official.vercel.app/search/ytsearch?q=${query}`;
+    const apiURL = `https://deliriussapi-oficial.vercel.app/search/ytsearch?q=${query}`;
 
     // Fetch data from the new API
     const res = await fetch(apiURL);
