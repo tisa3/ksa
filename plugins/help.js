@@ -137,6 +137,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
   }
 }
 handler.command = /^(help|menu|\?)$/i;
+handler.rowner = true;
 export default handler
 
 const more = String.fromCharCode(8206)
