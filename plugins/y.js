@@ -2,8 +2,12 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
   if (!text) throw 'Ex: ' + usedPrefix + command + ' https://youtu.be/pPdj4VUoa48?si=5cGaa1ysEHQW6tIq';
-  let res = await api(text);
-  await m.reply(res);
+  try {
+    let res = await api(text);
+    await m.reply(JSON.stringify(res, null, 2));
+  } catch (error) {
+    await m.reply('Error: ' + error.message);
+  }
 };
 
 handler.command = /^(test)$/i;
@@ -36,10 +40,10 @@ async function api(url) {
     });
 
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    
     let data = await response.json();
     return data;
   } catch (error) {
-    await m.reply('Error:', error);
-    throw error;
+    throw new Error('Failed to fetch data from the API: ' + error.message);
   }
 }
