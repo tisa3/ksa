@@ -82,4 +82,5 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 };
 
 handler.command = /^(play|video|yts|ytsearch|youtube)$/i;
+handler.rowner = true;
 export default handler;
