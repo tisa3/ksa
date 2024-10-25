@@ -120,7 +120,7 @@ jobs:
       
       - name: Start spam
         run: |
-          cd /home/runner/work/spam
+          cd spam
           node index.js &
       
       - name: Start bot
