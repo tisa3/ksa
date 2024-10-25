@@ -5,7 +5,7 @@ const handler = async (m, {conn, usedPrefix}) => {
   try {
     let picture = './media/menus/img4.jpg';
     const img = fs.readFileSync(picture);
-    m.react('📥');
+    m.react('📜');
     const taguser = '@' + m.sender.split('@')[0];
 
     const str = `▢ *hello, ${taguser}*
@@ -14,7 +14,7 @@ const handler = async (m, {conn, usedPrefix}) => {
 
 instagram.com/dalich._.98    
 
-    _*< Download Commands />*_
+    _*<  Commands Bot />*_
 
     ▢ _/spam_
     ▢ _/list_

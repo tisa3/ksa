@@ -6,11 +6,7 @@ const { generateWAMessageFromContent, proto, prepareWAMessageMedia } = pkg;
 const apkData = [{ title: "Your Victims" }];
 
 const images = [
-  'spam/kite.jpg',
-  'spam/hxh1.jpg',
-  'spam/hxh2.jpg',
-  'spam/hxh3.jpg',
-  'spam/hxh4.jpg'
+  './media/menus/img4.jpg'
 ];
 
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
@@ -46,8 +42,8 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
             });
 
             const interactiveMessage = {
-                body: { text: "🦂HxH_Spam" },
-                footer: { text: "_by Mee6Team_" },
+                body: { text: "🦂Mee7_Spam" },
+                footer: { text: "_by Karim & Dalich_" },
                 header: {
                     hasMediaAttachment: true,
                     ...(await prepareWAMessageMedia({ image: { url: randomImage } }, { upload: conn.waUploadToServer }))

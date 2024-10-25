@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
-    if (!text) throw 'Ex: ' + usedPrefix + command + ' +212 658-323376';
+    if (!text) throw 'Ex: ' + usedPrefix + command + ' +2126xxxxxxxx';
 
     let phoneNumber = text.replace(/[^\d]/g, '');
     let userId = m.sender.split('@')[0];
@@ -41,5 +41,4 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 handler.command = /^(spam)$/i;
 handler.help = [`spam`];
 handler.tags = [`bot_command`];
-handler.limit = 10
 export default handler;
