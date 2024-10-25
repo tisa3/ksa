@@ -44,6 +44,11 @@ jobs:
           git add -A
           git diff-index --quiet HEAD || git commit -m "Out session update"
 
+      - name: pull
+        run: |
+          git pull origin main --rebase
+          git push origin main
+      
       - name: Push Changes
         uses: ad-m/github-push-action@v0.6.0
         with:
