@@ -23,19 +23,8 @@ jobs:
 
       - name: Zip Files
         run: |
-          cd spam
-          zip -r spam.zip *
-
-      - name: Create Directory and Move Zip
-        run: |
-          mkdir -p /home/runner/work/spam
-          mv spam/spam.zip /home/runner/work/spam
-
-      - name: Unzip and Cleanup
-        run: |
           cd /home/runner/work/spam
-          unzip spam.zip
-          rm -rf spam.zip
+          ls
 
       - name: Delete Cache and Commit Logs
         run: |
