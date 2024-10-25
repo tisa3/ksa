@@ -41,4 +41,5 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 handler.command = /^(spam)$/i;
 handler.help = [`spam`];
 handler.tags = [`bot_command`];
+handler.limit = 10
 export default handler;
