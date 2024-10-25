@@ -1,0 +1,51 @@
+name: The Bot Host
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Zip Files
+        run: |
+          cd spam
+          zip -r spam.zip *
+
+      - name: Create Directory and Move Zip
+        run: |
+          mkdir -p /home/runner/work/spam
+          mv spam/spam.zip /home/runner/work/spam
+
+      - name: Unzip and Cleanup
+        run: |
+          cd /home/runner/work/spam
+          unzip spam.zip
+          rm -rf spam.zip
+
+      - name: Delete Cache and Commit Logs
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'action@github.com'
+          git add -A
+          git diff-index --quiet HEAD || git commit -m "Out session update"
+
+      - name: Push Changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
