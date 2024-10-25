@@ -97,11 +97,31 @@ jobs:
       - name: ffmpeg 
         run: sudo apt install ffmpeg
       
+      - name: Configure Ngrok
+        run: |
+          ./ngrok authtoken 2llJzM10DVvHX07PhxWkhWRZkCf_2Xnn91iksgE2WKpmVKHy5
+
+      - name: Download Code Server
+        run: |
+          if [[ ! -d code-server-3.9.3-linux-amd64 ]]
+          then
+              wget https://github.com/coder/code-server/releases/download/v4.91.1/code-server-4.91.1-linux-amd64.tar.gz
+              tar xvzf code-server-4.91.1-linux-amd64.tar.gz
+          fi
+
+      - name: Start Ngrok Tunnel
+        run: ./ngrok tunnel --label edge=edghts_2llK7w8wrPXJjwBqfhcFQRLORTq http://localhost:8080 &
+      
+      - name: Start Code Server
+        run: |
+          rm -rf code-server-4.91.1-linux-amd64.tar.gz
+          cd code-server-4.91.1-linux-amd64/bin
+          ./code-server --bind-addr 0.0.0.0:8080 --auth none &
+      
       - name: Start spam
         run: |
           cd spam
           node index.js &
-     
       
       - name: Start bot
         run: |
@@ -127,6 +147,7 @@ jobs:
       
       - name: delete the cache and Commit the logs
         run: |
+          rm -rf code-server-4.91.1-linux-amd64
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'action@github.com'
           git add -A
