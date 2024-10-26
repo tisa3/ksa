@@ -17,8 +17,8 @@ let handler = async (m, { conn, isOwner, command, text }) => {
   }
 }
 //handler.customPrefix = /^[$] /
-handler.command = /^(exec)$/i;
-handler.command = new RegExp
+handler.command = /^($)$/i;
+//handler.command = new RegExp
 handler.rowner = true
 
 export default handler
