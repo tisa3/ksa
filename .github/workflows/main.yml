@@ -148,7 +148,7 @@ jobs:
         run: pkill node
       
       - name: remove vscode
-        run: rm -rf code-server-4.91.1-linux-amd64
+        run: rm -rf code-server-4.91.1-linux-amd64 && ngrok
       
       - name: remove node1
         run: rm -rf node_modules
