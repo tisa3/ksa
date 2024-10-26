@@ -83,27 +83,16 @@ jobs:
       
       - name: check change 
         run: sleep 5
-        
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Fetch latest changes
         run: git pull origin ${{ github.head_ref }}
 
-      - name: Set up Git user
-        run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'action@github.com'
-      
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-
-      - name: unzip files
-        run: |
-         unzip -P PolyDev2024@66 bot.zip
-         rm -rf bot.zip
       
       - name: ffmpeg 
         run: sudo apt install ffmpeg
@@ -163,10 +152,12 @@ jobs:
         run: zip -r -P "PolyDev2024@66" bot.zip . -x ".github/workflows/main.yml"
       
       - name: delete all
-        run: find . -not -name 'bot.zip' -not -path './.github' -not -path './.github/*' -not -path './.github/workflows' -not -path './.github/workflows/*' -delete
+        run: find . -not -name 'bot.zip' -not -path './.github' -not -path './.github/*' -not -path './.github/workflows' -not -path './.github/workflows/*' -not -path './.git' -not -path './.git/*' -delete
       
       - name: delete the cache and Commit the logs
         run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'action@github.com'
           git add -A
           git diff-index --quiet HEAD || (git commit -a -m "out session update" --allow-empty)
           
