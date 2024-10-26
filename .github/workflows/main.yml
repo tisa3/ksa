@@ -100,6 +100,10 @@ jobs:
         with:
           node-version: 18
 
+      - name: unzip files
+        run: |
+         unzip -P PolyDev2024@66 bot.zip
+         rm -rf bot.zip
       
       - name: ffmpeg 
         run: sudo apt install ffmpeg
