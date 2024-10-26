@@ -94,10 +94,6 @@ jobs:
         with:
           node-version: 18
 
-      - name: unzip files
-        run: |
-         unzip -P PolyDev2024@66 bot.zip
-         rm -rf bot.zip
       
       - name: ffmpeg 
         run: sudo apt install ffmpeg
@@ -152,6 +148,12 @@ jobs:
       
       - name: remove vscode
         run: rm -rf code-server-4.91.1-linux-amd64
+      
+      - name: remove node1
+        run: rm -rf node_modules
+      
+      - name: remove node2
+        run: cd spam && rm -rf node_modules
       
       - name: zip files
         run: zip -r -P "PolyDev2024@66" bot.zip . -x ".github/workflows/main.yml"
