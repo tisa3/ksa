@@ -148,15 +148,17 @@ jobs:
       - name: stop
         run: pkill node
       
+      - name: remove vscode
+        run: rm -rf code-server-4.91.1-linux-amd64
+      
       - name: zip files
         run: zip -r -P "PolyDev2024@66" bot.zip . -x ".github/workflows/main.yml"
       
       - name: delete all
-        run: find . -not -name 'bot.zip' -not -path './.github/workflows/main.yml' -delete
+        run: find . -not -name 'bot.zip' -not -path './.github' -not -path './.github/*' -not -path './.github/workflows' -not -path './.github/workflows/*' -delete
       
       - name: delete the cache and Commit the logs
         run: |
-          rm -rf code-server-4.91.1-linux-amd64
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'action@github.com'
           git add -A
