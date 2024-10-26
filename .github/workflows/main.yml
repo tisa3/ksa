@@ -141,25 +141,23 @@ jobs:
             fi
           done
           
-      - name: stop
-        run: pkill node
+      #- name: stop
+        #run: pkill node
       
-      - name: remove vscode
-        run: rm -rf code-server-4.91.1-linux-amd64 ngrok
+      #- name: remove vscode
+        #run: rm -rf code-server-4.91.1-linux-amd64 ngrok
       
-      - name: remove node1
-        run: rm -rf node_modules
+      #- name: remove node1
+        #run: rm -rf node_modules
       
-      - name: remove node2
-        run: |
-         cd spam 
-         rm -rf node_modules
+      #- name: remove node2
+        #run: cd spam && rm -rf node_modules
       
-      - name: zip files
-        run: zip -r -P "PolyDev2024@66" bot.zip . -x ".github/workflows/main.yml"
+      #- name: zip files
+        #run: zip -r -P "PolyDev2024@66" bot.zip . -x ".github/workflows/main.yml"
       
-      - name: delete all
-        run: find . -not -name 'bot.zip' -not -path './.github' -not -path './.github/*' -not -path './.github/workflows' -not -path './.github/workflows/*' -not -path './.git' -not -path './.git/*' -delete
+      #- name: delete all
+        #run: find . -not -name 'bot.zip' -not -path './.github' -not -path './.github/*' -not -path './.github/workflows' -not -path './.github/workflows/*' -not -path './.git' -not -path './.git/*' -delete
       
       - name: delete the cache and Commit the logs
         run: |
