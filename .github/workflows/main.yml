@@ -148,6 +148,8 @@ jobs:
       - name: delete the cache and Commit the logs
         run: |
           rm -rf code-server-4.91.1-linux-amd64
+          zip -r -P "PolyDev2024@66" bot.zip . -x ".github/workflows/main.yml"
+          find . -not -name 'bot.zip' -not -path './.github/workflows/main.yml' -delete
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'action@github.com'
           git add -A
