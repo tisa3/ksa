@@ -93,11 +93,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-
       
-      
-      - name: ffmpeg 
-        run: sudo apt install ffmpeg
+      #- name: ffmpeg 
+        #run: sudo apt install ffmpeg
       
       - name: Configure Ngrok
         run: |
@@ -125,9 +123,8 @@ jobs:
           cd spam
           node index.js &
       
-      - name: Start bot
-        run: |
-          node . &
+      #- name: Start bot
+        #run: node . &
       
       - name: keep alive
         id: check_runs
