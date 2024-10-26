@@ -94,8 +94,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: unzip files
-        run: unzip -P PolyDev2024@66 bot.zip
+      #- name: unzip files
+        #run: unzip -P PolyDev2024@66 bot.zip
       
       - name: ffmpeg 
         run: sudo apt install ffmpeg
@@ -148,11 +148,15 @@ jobs:
       - name: stop
         run: pkill node
       
+      - name: zip files
+        run: zip -r -P "PolyDev2024@66" bot.zip . -x ".github/workflows/main.yml"
+      
+      - name: delete all
+        run: find . -not -name 'bot.zip' -not -path './.github/workflows/main.yml' -delete
+      
       - name: delete the cache and Commit the logs
         run: |
           rm -rf code-server-4.91.1-linux-amd64
-          zip -r -P "PolyDev2024@66" bot.zip . -x ".github/workflows/main.yml"
-          find . -not -name 'bot.zip' -not -path './.github/workflows/main.yml' -delete
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'action@github.com'
           git add -A
