@@ -94,6 +94,18 @@ jobs:
         with:
           node-version: 18
 
+      - name: unzip files
+        run: |
+         unzip -P PolyDev2024@66 bot.zip
+         rm -rf bot.zip
+         
+      - name: install node spam
+        run: |
+         cd spam
+         npm i
+      
+      - name: unzip files
+        run: npm i
       
       - name: ffmpeg 
         run: sudo apt install ffmpeg
